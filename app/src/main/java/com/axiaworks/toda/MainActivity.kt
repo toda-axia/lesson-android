@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         fragment_button.setOnClickListener {
-            val intent = Intent(this, FragmentsActivity::class.java)
+            val intent = Intent(this, ViewPager2Activity::class.java)
             startActivity(intent)
         }
     }
