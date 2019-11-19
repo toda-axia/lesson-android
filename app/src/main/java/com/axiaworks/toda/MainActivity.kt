@@ -6,8 +6,6 @@ import android.os.Bundle
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import kotlinx.android.synthetic.main.activity_main.*
 
-const val EXTRA_MESSAGE = "com.axiaworks.toda.MESSAGE"
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
