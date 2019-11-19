@@ -8,6 +8,9 @@ import com.axiaworks.toda.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.gpu.ContrastFilterTransformation
+import jp.wasabeef.glide.transformations.gpu.ToonFilterTransformation
 import kotlinx.android.synthetic.main.activity_glide.*
 
 class GlideActivity : AppCompatActivity() {
@@ -46,19 +49,25 @@ class GlideActivity : AppCompatActivity() {
             .error(R.mipmap.ic_launcher)
             .into(imageView5)
 
+        // ぼかし加工
         Glide.with(imageView6)
             .load("https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg")
+            .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 3)))
             .error(R.mipmap.ic_launcher)
             .into(imageView6)
 
+        // トゥーン加工
         Glide.with(imageView7)
             .load("https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg")
+            .apply(RequestOptions.bitmapTransform(ToonFilterTransformation(10.0f, 5.0f)))
             .error(R.mipmap.ic_launcher)
             .into(imageView7)
 
+        // コントラスト加工
         Glide.with(imageView8)
             .load("https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg")
             .error(R.mipmap.ic_launcher)
+                .apply(RequestOptions.bitmapTransform(ContrastFilterTransformation(1.8f)))
             .into(imageView8)
     }
 }
