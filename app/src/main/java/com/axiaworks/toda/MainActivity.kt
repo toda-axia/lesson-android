@@ -2,6 +2,7 @@ package com.axiaworks.toda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.axiaworks.toda.feature.glide.GlideActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +14,10 @@ class MainActivity : AppCompatActivity() {
 
         fragment_button.setOnClickListener {
             startActivity(ViewPager2Activity.callingIntent(this))
+        }
+
+        glide_button.setOnClickListener {
+            startActivity(GlideActivity.callingIntent(this))
         }
     }
 }
