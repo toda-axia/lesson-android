@@ -13,6 +13,10 @@ import java.util.*
 
 class RecyclerViewActivity : AppCompatActivity() {
 
+    companion object {
+        fun callingIntent(context: Context) = Intent(context, RecyclerViewActivity::class.java)
+    }
+
     private val dataSet = arrayListOf<String>()
 
     companion object {
