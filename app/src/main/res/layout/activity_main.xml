@@ -40,4 +40,15 @@
         app:layout_constraintStart_toEndOf="@+id/fragment_button"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/firebase_analytics_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Firebase Analytics"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
