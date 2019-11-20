@@ -19,10 +19,6 @@ class RecyclerViewActivity : AppCompatActivity() {
 
     private val dataSet = arrayListOf<String>()
 
-    companion object {
-        fun callingIntent(context: Context) = Intent(context, RecyclerViewActivity::class.java)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

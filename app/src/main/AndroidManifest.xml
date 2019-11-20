@@ -14,8 +14,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".feature.glide.GlideActivity" />
         <activity android:name=".feature.viewpager.ViewPager2Activity" />
-        <activity android:name=".feature.recycler_view.RecyclerViewActivity"></activity>
-        <activity android:name=".feature.viewpager.ViewPager2Activity"/>
         <activity android:name=".feature.recyclerview.RecyclerViewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
