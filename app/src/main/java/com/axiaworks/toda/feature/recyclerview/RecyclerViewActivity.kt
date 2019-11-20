@@ -1,4 +1,4 @@
-package com.axiaworks.toda.feature.recycler_view
+package com.axiaworks.toda.feature.recyclerview
 
 import android.content.Context
 import android.content.Intent

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.axiaworks.toda.feature.glide.GlideActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
-import com.axiaworks.toda.feature.recycler_view.RecyclerViewActivity
+import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

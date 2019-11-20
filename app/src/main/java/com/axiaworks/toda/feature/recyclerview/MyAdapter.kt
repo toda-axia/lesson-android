@@ -1,4 +1,4 @@
-package com.axiaworks.toda.feature.recycler_view
+package com.axiaworks.toda.feature.recyclerview
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.R
 
-class MyAdapter(myDataset: ArrayList<String>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
-    private var dataset = arrayListOf<String>()
+    private var dataSet = arrayListOf<String>()
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         var mTextView: TextView
@@ -20,7 +20,7 @@ class MyAdapter(myDataset: ArrayList<String>) : RecyclerView.Adapter<MyAdapter.V
     }
 
     init {
-        dataset = myDataset
+        dataSet = myDataSet
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,10 +31,10 @@ class MyAdapter(myDataset: ArrayList<String>) : RecyclerView.Adapter<MyAdapter.V
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mTextView.text = dataset[position]
+        holder.mTextView.text = dataSet[position]
     }
 
     override fun getItemCount(): Int {
-        return dataset.size
+        return dataSet.size
     }
 }
