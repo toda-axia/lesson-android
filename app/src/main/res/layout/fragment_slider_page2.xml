@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Content2"
+        android:text="@string/viewpager2_content2"
         android:textAlignment="center"
         android:textSize="36sp" />
 
