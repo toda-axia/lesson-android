@@ -14,8 +14,8 @@ import java.util.*
 
 class FirebaseAnalyticsActivity : AppCompatActivity() {
 
-    private val logDataSet = arrayListOf<String>()
-    val log_adapter = LogRecyclerViewAdapter(logDataSet)
+    val logDataSet = arrayListOf<String>()
+    val adapter = LogRecyclerViewAdapter(logDataSet)
 
     companion object {
         val TAG: String = "Firebase"
@@ -39,7 +39,6 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         log_button3.setOnClickListener {
             addLogData(3)
             initRecyclerView()
-            log_adapter.notifyDataSetChanged()
         }
     }
 
@@ -58,6 +57,7 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         if (logDataSet.size > 100) {
             logDataSet.removeAt(0)
         }
+        adapter.notifyDataSetChanged()
     }
 
     private fun initRecyclerView() {
