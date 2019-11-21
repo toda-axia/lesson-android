@@ -3,6 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="main_menu_viewpager2">ViewPager2</string>
+    <string name="main_menu_recyclerview">RecyclerView</string>
     <string name="main_menu_glide">Glide</string>
     <string name="viewpager2_content1">Content1</string>
     <string name="viewpager2_content2">Content2</string>
