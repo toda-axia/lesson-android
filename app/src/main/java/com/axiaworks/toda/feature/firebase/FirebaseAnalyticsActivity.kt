@@ -52,13 +52,12 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         val logDateTime: String = getTimeStamp()
         val logData: String = "$logDateTime: click ボタン$button_number"
         Log.d(TAG, "$logData")
-//        logDataSet.add(logData)
-        adapter.setList(logData)
+        logDataSet.add(logData)
         Log.d(TAG, "$logDataSet")
         if (logDataSet.size > 100) {
             logDataSet.removeAt(0)
         }
-//        adapter.notifyDataSetChanged()
+        adapter.setList(logDataSet)
     }
 
     private fun initRecyclerView() {
@@ -66,6 +65,9 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@FirebaseAnalyticsActivity)
             adapter = LogRecyclerViewAdapter(logDataSet)
+
+            var scrollPosition = logDataSet.size - 1
+            log_view.scrollToPosition(scrollPosition)
         }
     }
 }

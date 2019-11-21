@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.axiaworks.toda.R
 
-
 class LogRecyclerViewAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapter<LogRecyclerViewAdapter.ViewHolder>() {
 
     private var dataSet = arrayListOf<String>()
@@ -40,8 +39,8 @@ class LogRecyclerViewAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapte
         return dataSet.size
     }
 
-    fun setList(log: String) {
-        dataSet.add(log)
+    fun setList(logList: ArrayList<String>) {
+        dataSet = logList
         notifyDataSetChanged()
     }
 }
