@@ -40,5 +40,8 @@ class LogRecyclerViewAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapte
         return dataSet.size
     }
 
-
+    fun setList(log: String) {
+        dataSet.add(log)
+        notifyDataSetChanged()
+    }
 }
