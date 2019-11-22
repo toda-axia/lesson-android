@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="main_menu_viewpager2">ViewPager2</string>
     <string name="main_menu_recyclerview">RecyclerView</string>
+    <string name="main_manu_firebaseanalytics">Firebase Analytics</string>
     <string name="recyclerview_vertical_button_text">縦</string>
     <string name="recyclerview_horizontal_button">横</string>
     <string name="recyclerview_grid_button_text">グリッド</string>
@@ -13,4 +14,7 @@
     <string name="viewpager2_content3">Content3</string>
     <string name="viewpager2_content4">Content4</string>
     <string name="glide_title">本田 翼</string>
+    <string name="firebase_button_text1">ボタン1</string>
+    <string name="firebase_button_text2">ボタン2</string>
+    <string name="firebase_button_text3">ボタン3</string>
 </resources>
