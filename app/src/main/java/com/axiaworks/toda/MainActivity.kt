@@ -2,6 +2,7 @@ package com.axiaworks.toda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.axiaworks.toda.feature.dialogfragment.DialogFramentActivity
 import com.axiaworks.toda.feature.glide.GlideActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view_button.setOnClickListener {
             startActivity(RecyclerViewActivity.callingIntent(this))
+        }
+
+        dialog_fragment_button.setOnClickListener {
+            startActivity(DialogFramentActivity.callingIntent(this))
         }
     }
 }

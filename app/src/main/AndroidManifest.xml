@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".feature.dialogfragment.DialogFramentActivity"
+            android:label="@string/title_activity_dialog_frament"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".feature.glide.GlideActivity" />
         <activity android:name=".feature.viewpager.ViewPager2Activity" />
         <activity android:name=".feature.recyclerview.RecyclerViewActivity" />
