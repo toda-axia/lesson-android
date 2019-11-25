@@ -25,4 +25,11 @@
     <string name="firebase_button_text1">ボタン1</string>
     <string name="firebase_button_text2">ボタン2</string>
     <string name="firebase_button_text3">ボタン3</string>
+
+    <!-- DialogFragment -->
+    <string name="dialog_fragment_button1">ダイアログ1</string>
+    <string name="dialog_fragment_button2">ダイヤログ2</string>
+    <string name="main_menu_dialogfragment">DialogFragment</string>
+    <string name="dialogfragment_dialog1_content">DialogFragmentの課題アプリです。</string>
+    <string name="dialogfragment_dialog1_title">DialogFragment</string>
 </resources>
