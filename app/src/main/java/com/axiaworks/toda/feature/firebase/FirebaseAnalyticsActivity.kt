@@ -81,7 +81,7 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
 
     private fun logButtonAnalytics(button_number: Int) {
         val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "contentType")
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "firebase_button")
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "firebase_button$button_number")
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
     }
