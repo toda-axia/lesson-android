@@ -9,6 +9,7 @@ import com.axiaworks.toda.R
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
 
 import kotlinx.android.synthetic.main.activity_dialog_frament.*
+import kotlinx.android.synthetic.main.fragment_dialog_frament.*
 
 class DialogFramentActivity : AppCompatActivity() {
 
@@ -19,6 +20,11 @@ class DialogFramentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialog_frament)
+
+//        dialog_fragment_button1.setOnClickListener {
+//            val newFragment = SimpleDialogFragment()
+//            newFragment.show(supportFragmentManager, "")
+//        }
     }
 
 }

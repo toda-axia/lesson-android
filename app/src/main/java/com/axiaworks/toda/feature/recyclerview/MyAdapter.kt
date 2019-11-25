@@ -15,7 +15,7 @@ class MyAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapter<MyAdapter.V
         var mTextView: TextView
 
         init {
-            mTextView = v.findViewById(R.id.text_view) as TextView
+            mTextView = v.findViewById(R.id.dialog_text_view) as TextView
         }
     }
 
