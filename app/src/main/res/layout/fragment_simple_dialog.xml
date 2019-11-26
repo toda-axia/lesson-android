@@ -15,14 +15,14 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/dialogfragment_dialog1_title_text"
+        android:id="@+id/dialogfragment_dialog1_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="36sp"
-        android:text="@string/dialogfragment_dialog1_title" />
+        android:text="@string/dialog_fragment1"
+        android:textSize="36sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/dialogfragment_dialog1_content"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:text="@string/dialogfragment_dialog1_content"

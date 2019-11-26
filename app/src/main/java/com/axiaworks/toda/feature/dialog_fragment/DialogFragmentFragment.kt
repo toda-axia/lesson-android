@@ -30,8 +30,13 @@ class DialogFragmentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         dialogfragment_button1.setOnClickListener {
-            val newFragment = SimpleDialogFragment()
-            newFragment.show(requireFragmentManager(), "SimpleDialogFragment")
+            val dialogFragment1 = SimpleDialogFragment()
+            dialogFragment1.show(requireFragmentManager(), "SimpleDialogFragment")
+        }
+
+        dialogfragment_button2.setOnClickListener {
+            val dialogFragment2 = LogDialogFragment()
+            dialogFragment2.show(requireFragmentManager(), "LogDialogFragment")
         }
     }
 }

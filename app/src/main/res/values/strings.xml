@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">lesson-android</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 
 　　<!-- MainActivity -->
     <string name="main_menu_viewpager2">ViewPager2</string>
@@ -13,6 +15,10 @@
     <string name="recyclerview_grid_button_text">グリッド</string>
 
     <!-- ViewPager -->
+    <string name="main_menu_dialogfragment">DialogFragment</string>
+    <string name="recyclerview_vertical_button_text">縦</string>
+    <string name="recyclerview_horizontal_button">横</string>
+    <string name="recyclerview_grid_button_text">グリッド</string>
     <string name="viewpager2_content1">Content1</string>
     <string name="viewpager2_content2">Content2</string>
     <string name="viewpager2_content3">Content3</string>
@@ -27,9 +33,9 @@
     <string name="firebase_button_text3">ボタン3</string>
 
     <!-- DialogFragment -->
-    <string name="dialog_fragment_button1">ダイアログ1</string>
-    <string name="dialog_fragment_button2">ダイヤログ2</string>
     <string name="main_menu_dialogfragment">DialogFragment</string>
+    <string name="dialog_fragment1">ダイアログ1</string>
+    <string name="dialog_fragment2">ダイヤログ2</string>
     <string name="dialogfragment_dialog1_content">DialogFragmentの課題アプリです。</string>
-    <string name="dialogfragment_dialog1_title">DialogFragment</string>
+    <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
 </resources>
