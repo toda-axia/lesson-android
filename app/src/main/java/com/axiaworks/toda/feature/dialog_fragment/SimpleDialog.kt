@@ -10,7 +10,7 @@ import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_simple_dialog.*
 
 
-class SimpleDialogFragment : DialogFragment() {
+class SimpleDialog : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

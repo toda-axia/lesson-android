@@ -3,17 +3,15 @@ package com.axiaworks.toda.feature.dialog_fragment
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 
 import com.axiaworks.toda.R
-import kotlinx.android.synthetic.main.fragment_log_dialog.*
 import com.axiaworks.toda.databinding.FragmentLogDialogBinding
 
-class LogDialogFragment : DialogFragment() {
+class LogDialog : DialogFragment() {
     private lateinit var binding: FragmentLogDialogBinding
     private var listener: LogCountListener? = null
 
@@ -32,11 +30,11 @@ class LogDialogFragment : DialogFragment() {
             LayoutInflater.from(context), R.layout.fragment_log_dialog, null, false
         ).apply {
             dialogfragmentDialog2NegativeButton.setOnClickListener {
-                listener?.countLog("NO")
+                listener?.isSelectedLog("NO")
                 dismissAllowingStateLoss()
             }
             dialogfragmentDialog2PositiveButton.setOnClickListener{
-                listener?.countLog("YES")
+                listener?.isSelectedLog("YES")
                 dismissAllowingStateLoss()
             }
         }
@@ -44,16 +42,16 @@ class LogDialogFragment : DialogFragment() {
         return Dialog(requireContext()).apply {
             setContentView(binding.root)
 
-            window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
     }
 
     companion object {
         const val TAG = "LogDialog"
-        fun getInstance() = LogDialogFragment()
+        fun getInstance() = LogDialog()
     }
 }
 
 interface LogCountListener {
-    fun countLog(log: String)
+    fun isSelectedLog(log: String)
 }

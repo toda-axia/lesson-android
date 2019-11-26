@@ -18,7 +18,7 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
         setContentView(R.layout.activity_dialog_fragment)
     }
 
-    override fun countLog(log: String) {
+    override fun isSelectedLog(log: String) {
         Log.d("TAG", log)
     }
 }
