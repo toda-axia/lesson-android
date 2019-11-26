@@ -38,4 +38,8 @@ class DialogFragmentFragment : Fragment() {
             dialogFragment2.show(requireFragmentManager(), "LogDialogFragment")
         }
     }
+
+    fun setLogToAdapter(dialogLog: String) {
+        Log.d("TAG", "フラグメント:$dialogLog")
+    }
 }

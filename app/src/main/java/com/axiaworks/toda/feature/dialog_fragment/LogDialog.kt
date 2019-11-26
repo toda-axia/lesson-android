@@ -9,10 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 
 import com.axiaworks.toda.R
-import com.axiaworks.toda.databinding.FragmentLogDialogBinding
+import com.axiaworks.toda.databinding.LogDialogBinding
 
 class LogDialog : DialogFragment() {
-    private lateinit var binding: FragmentLogDialogBinding
+    private lateinit var binding: LogDialogBinding
     private var listener: LogCountListener? = null
 
     override fun onAttach(context: Context) {
@@ -26,8 +26,8 @@ class LogDialog : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        binding = DataBindingUtil.inflate<FragmentLogDialogBinding>(
-            LayoutInflater.from(context), R.layout.fragment_log_dialog, null, false
+        binding = DataBindingUtil.inflate<LogDialogBinding>(
+            LayoutInflater.from(context), R.layout.log_dialog, null, false
         ).apply {
             dialogfragmentDialog2NegativeButton.setOnClickListener {
                 listener?.isSelectedLog("NO")

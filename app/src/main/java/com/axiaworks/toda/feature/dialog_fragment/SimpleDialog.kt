@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 
 import com.axiaworks.toda.R
-import kotlinx.android.synthetic.main.fragment_simple_dialog.*
+import kotlinx.android.synthetic.main.simple_dialog.*
 
 
 class SimpleDialog : DialogFragment() {
@@ -16,7 +16,7 @@ class SimpleDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         return inflater.inflate(R.layout.fragment_simple_dialog, container, false)
+         return inflater.inflate(R.layout.simple_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

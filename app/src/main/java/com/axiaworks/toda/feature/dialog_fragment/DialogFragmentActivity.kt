@@ -5,10 +5,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.databinding.DataBindingUtil
 import com.axiaworks.toda.R
+import com.axiaworks.toda.databinding.ActivityDialogFragmentBinding
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
+    private lateinit var binding: ActivityDialogFragmentBinding
+
+    private var dialogFragmentFragment: DialogFragmentFragment? = null
+
     companion object {
         fun callingIntent(context: Context) = Intent(context, DialogFragmentActivity::class.java)
     }
@@ -16,9 +24,21 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialog_fragment)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dialog_fragment)
+        dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.fragmentdialog_container) as DialogFragmentFragment
     }
 
     override fun isSelectedLog(log: String) {
-        Log.d("TAG", log)
+        val logDateTime: String = getTimeStamp()
+        val dialogLog: String = "$logDateTime: ユーザーは'$log'を選択しました"
+        Log.d("TAG", dialogLog)
+        dialogFragmentFragment?.setLogToAdapter(dialogLog)
+    }
+
+    private fun getTimeStamp(): String {
+        val date = Date()
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        return format.format(date)
     }
 }
