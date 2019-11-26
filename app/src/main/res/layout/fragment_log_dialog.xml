@@ -1,46 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="model"-->
+<!--            type="com.axiaworks.toda.SampleModel" />-->
+<!--    </data>-->
+    <LinearLayout android:layout_width="match_parent"
     android:layout_height="300dp"
     android:layout_marginStart="24dp"
     android:layout_marginTop="32dp"
     android:layout_marginEnd="24dp"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
     <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/dialogfragment_dialog2_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_fragment2"
+            android:textSize="36sp" />
 
-    <TextView
-        android:id="@+id/dialogfragment_dialog2_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/dialog_fragment2"
-        android:textSize="36sp" />
+        <TextView
+            android:id="@+id/dialogfragment_dialog2_content"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="@string/dialogfragment_dialog2_content"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/dialogfragment_dialog2_content"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="@string/dialogfragment_dialog2_content"
-        android:textSize="24sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/dialogfragment_dialog2_negative_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/no" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/dialogfragment_dialog1_ok_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/yes"
-            android:textSize="18sp" />
+            <Button
+                android:id="@+id/dialogfragment_dialog2_negative_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/no" />
+
+            <Button
+                android:id="@+id/dialogfragment_dialog2_positive_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/yes"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</layout>

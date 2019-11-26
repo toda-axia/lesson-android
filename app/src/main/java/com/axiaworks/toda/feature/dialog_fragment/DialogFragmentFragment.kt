@@ -3,6 +3,7 @@ package com.axiaworks.toda.feature.dialog_fragment
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,9 @@ import android.view.ViewGroup
 
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_dialog.*
+import com.axiaworks.toda.databinding.FragmentDialogBinding
 
-class DialogFragmentFragment : Fragment() {
+class DialogFragmentFragment : Fragment(), LogCountListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,5 +40,9 @@ class DialogFragmentFragment : Fragment() {
             val dialogFragment2 = LogDialogFragment()
             dialogFragment2.show(requireFragmentManager(), "LogDialogFragment")
         }
+    }
+
+    override fun countLog(log: String) {
+        Log.d("TAG", log)
     }
 }
