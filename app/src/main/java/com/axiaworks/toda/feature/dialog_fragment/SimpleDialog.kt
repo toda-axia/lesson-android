@@ -16,7 +16,7 @@ class SimpleDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         return inflater.inflate(R.layout.simple_dialog, container, false)
+        return inflater.inflate(R.layout.simple_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

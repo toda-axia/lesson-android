@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_dialog.*
 
 class DialogFragmentFragment : Fragment() {
+
+    val adapter = DialogLogAdapter(dialogLogDataSet)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,5 +44,19 @@ class DialogFragmentFragment : Fragment() {
 
     fun setLogToAdapter(dialogLog: String) {
         Log.d("TAG", "フラグメント:$dialogLog")
+        dialogLogDataSet.add(dialogLog)
+        initRecyclerView()
+        adapter.setList(dialogLogDataSet)
+    }
+
+    private fun initRecyclerView() {
+        dialog_log_view.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+            adapter = DialogLogAdapter(dialogLogDataSet)
+
+            var scrollPosition = dialogLogDataSet.size - 1
+            dialog_log_view.scrollToPosition(scrollPosition)
+        }
     }
 }

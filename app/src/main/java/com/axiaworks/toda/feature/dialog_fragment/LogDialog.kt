@@ -38,10 +38,8 @@ class LogDialog : DialogFragment() {
                 dismissAllowingStateLoss()
             }
         }
-
         return Dialog(requireContext()).apply {
             setContentView(binding.root)
-
             window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
     }
