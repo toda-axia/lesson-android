@@ -8,7 +8,7 @@
         tools:context=".feature.dialog_fragment.DialogFragmentActivity">
 
         <fragment
-            android:id="@+id/fragment"
+            android:id="@+id/dialogfragment_container"
             android:name="com.axiaworks.toda.feature.dialog_fragment.DialogFragmentFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"

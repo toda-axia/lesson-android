@@ -23,10 +23,9 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dialog_fragment)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dialog_fragment)
-        dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.fragmentdialog_container) as DialogFragmentFragment
+        dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.dialogfragment_container) as DialogFragmentFragment
     }
 
     override fun isSelectedLog(log: String) {
