@@ -35,7 +35,7 @@
     <!-- DialogFragment -->
     <string name="main_menu_dialogfragment">DialogFragment</string>
     <string name="dialog_fragment1">ダイアログ1</string>
-    <string name="dialog_fragment2">ダイヤログ2</string>
+    <string name="dialog_fragment2">ダイアログ2</string>
     <string name="dialogfragment_dialog1_content">DialogFragmentの課題アプリです。</string>
     <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
 </resources>
