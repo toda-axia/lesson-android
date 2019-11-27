@@ -7,6 +7,7 @@
     <string name="main_menu_glide">Glide</string>
     <string name="main_menu_firebaseanalytics">Firebase Analytics</string>
     <string name="main_menu_dialogfragment">DialogFragment</string>
+    <string name="main_menu_retrofit">Retrofit</string>
 
     <!-- RecyclerView -->
     <string name="recyclerview_vertical_button_text">縦</string>
@@ -34,4 +35,7 @@
     <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
+
+    <!-- Retrofit -->
+    <string name="retrofit_get_article">記事取得</string>
 </resources>

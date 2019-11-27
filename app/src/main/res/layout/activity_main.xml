@@ -44,12 +44,21 @@
         android:id="@+id/firebase_analytics_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="36dp"
         android:text="@string/main_menu_firebaseanalytics"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_view_button" />
+        tools:layout_editor_absoluteY="119dp" />
+
+    <Button
+        android:id="@+id/retrofit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/main_menu_retrofit"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/firebase_analytics_button"
+        tools:layout_editor_absoluteX="257dp" />
 
     <Button
         android:id="@+id/dialogfragment_button"

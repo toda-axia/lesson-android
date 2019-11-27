@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".feature.dialog_fragment.DialogFragmentActivity" />
+        <activity android:name=".feature.retrofit.RetrofitActivity" />
         <activity android:name=".feature.glide.GlideActivity" />
         <activity android:name=".feature.firebase.FirebaseAnalyticsActivity" />
         <activity android:name=".feature.viewpager.ViewPager2Activity" />
