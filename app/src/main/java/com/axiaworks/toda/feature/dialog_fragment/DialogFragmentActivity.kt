@@ -8,13 +8,11 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.ActivityDialogFragmentBinding
-import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
     private lateinit var binding: ActivityDialogFragmentBinding
-
     private var dialogFragmentFragment: DialogFragmentFragment? = null
 
     companion object {

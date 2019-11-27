@@ -6,15 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_dialog.*
 
 class DialogFragmentFragment : Fragment() {
-
-    val adapter = DialogLogAdapter(dialogLogDataSet)
+    private val dialogLogDataSet = arrayListOf<String>()
+    private val adapter = DialogLogAdapter(dialogLogDataSet)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

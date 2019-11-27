@@ -7,27 +7,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.R
 
-var dialogLogDataSet = arrayListOf<String>()
-
-class DialogLogAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapter<DialogLogAdapter.ViewHolder>() {
+class DialogLogAdapter(
+    private var dialogLogDataSet: ArrayList<String>
+) : RecyclerView.Adapter<DialogLogAdapter.ViewHolder>() {
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var mTextView: TextView
-
-        init {
-            mTextView = v.findViewById(R.id.dialog_log_text) as TextView
-        }
-    }
-
-    init {
-        dialogLogDataSet = myDataSet
+        var mTextView: TextView = v.findViewById(R.id.dialog_log_text)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item_dialog_log_info, parent, false)
-
-        return ViewHolder(view)
+        return ViewHolder(
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.list_item_dialog_log_info, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
