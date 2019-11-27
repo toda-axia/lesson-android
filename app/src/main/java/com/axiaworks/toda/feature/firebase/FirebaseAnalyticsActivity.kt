@@ -29,19 +29,22 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         log_button1.setOnClickListener {
             logButtonAnalytics(1)
             addLogData(1)
-            initRecyclerView()
+            setRecyclerView()
+            scrollToLatest()
         }
 
         log_button2.setOnClickListener {
             logButtonAnalytics(2)
             addLogData(2)
-            initRecyclerView()
+            setRecyclerView()
+            scrollToLatest()
         }
 
         log_button3.setOnClickListener {
             logButtonAnalytics(3)
             addLogData(3)
-            initRecyclerView()
+            setRecyclerView()
+            scrollToLatest()
         }
     }
 
@@ -61,17 +64,19 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         adapter.setList(logDataSet)
     }
 
-    private fun initRecyclerView() {
+    private fun setRecyclerView() {
         log_view.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@FirebaseAnalyticsActivity)
             adapter = LogRecyclerViewAdapter(logDataSet)
-
-            log_view.scrollToPosition(logDataSet.size - 1)
         }
     }
 
     private fun logButtonAnalytics(button_number: Int) {
         AnalyticsUtils.sendClickEventLog(baseContext, "firebase_button$button_number")
+    }
+
+    private fun scrollToLatest() {
+        log_view.scrollToPosition(logDataSet.size - 1)
     }
 }
