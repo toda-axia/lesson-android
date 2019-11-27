@@ -8,27 +8,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.axiaworks.toda.R
 
-class LogRecyclerViewAdapter(myDataSet: ArrayList<String>) : RecyclerView.Adapter<LogRecyclerViewAdapter.ViewHolder>() {
-
-    private var dataSet = arrayListOf<String>()
+class LogRecyclerViewAdapter(
+    private var dataSet: ArrayList<String>
+) : RecyclerView.Adapter<LogRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var mTextView: TextView
-
-        init {
-            mTextView = v.findViewById(R.id.log_text) as TextView
-        }
-    }
-
-    init {
-        dataSet = myDataSet
+        var mTextView: TextView = v.findViewById(R.id.log_text)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item_log_info, parent, false)
-
-        return ViewHolder(view)
+        return ViewHolder(
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.list_item_log_info, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
