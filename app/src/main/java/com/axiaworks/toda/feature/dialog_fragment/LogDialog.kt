@@ -26,6 +26,7 @@ class LogDialog : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        this.isCancelable = false
         binding = DataBindingUtil.inflate<LogDialogBinding>(
             LayoutInflater.from(context), R.layout.log_dialog, null, false
         ).apply {
