@@ -25,25 +25,23 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firebase_analytics)
+        initRecyclerView()
 
         log_button1.setOnClickListener {
             logButtonAnalytics(1)
             addLogData(1)
-            setRecyclerView()
             scrollToLatest()
         }
 
         log_button2.setOnClickListener {
             logButtonAnalytics(2)
             addLogData(2)
-            setRecyclerView()
             scrollToLatest()
         }
 
         log_button3.setOnClickListener {
             logButtonAnalytics(3)
             addLogData(3)
-            setRecyclerView()
             scrollToLatest()
         }
     }
@@ -61,14 +59,14 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         if (logDataSet.size > 100) {
             logDataSet.removeAt(0)
         }
-        adapter.setList(logDataSet)
+        adapter.notifyDataSetChanged()
     }
 
-    private fun setRecyclerView() {
+    private fun initRecyclerView() {
         log_view.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@FirebaseAnalyticsActivity)
-            adapter = LogRecyclerViewAdapter(logDataSet)
+            adapter = this@FirebaseAnalyticsActivity.adapter
         }
     }
 

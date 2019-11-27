@@ -31,9 +31,4 @@ class LogRecyclerViewAdapter(
     override fun getItemCount(): Int {
         return dataSet.size
     }
-
-    fun setList(logList: ArrayList<String>) {
-        dataSet = logList
-        notifyDataSetChanged()
-    }
 }
