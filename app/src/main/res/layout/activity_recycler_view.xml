@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:background="@color/button_color1"
             android:text="@string/recyclerview_vertical_button_text"
-            android:textColor="#000000" />
+            android:textColor="@color/basic_text" />
 
         <Button
             android:id="@+id/horizon_button"
@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:background="@color/button_color2"
             android:text="@string/recyclerview_horizontal_button"
-            android:textColor="#000000" />
+            android:textColor="@color/basic_text" />
 
         <Button
             android:id="@+id/grid_button"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:background="@color/button_color3"
             android:text="@string/recyclerview_grid_button_text"
-            android:textColor="#000000" />
+            android:textColor="@color/basic_text" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
