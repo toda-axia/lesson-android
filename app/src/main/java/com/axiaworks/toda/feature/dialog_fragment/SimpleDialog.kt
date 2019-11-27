@@ -2,11 +2,10 @@ package com.axiaworks.toda.feature.dialog_fragment
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-
 import com.axiaworks.toda.R
-
 
 class SimpleDialog : DialogFragment() {
 
@@ -14,11 +13,12 @@ class SimpleDialog : DialogFragment() {
         this.isCancelable = false
         return AlertDialog.Builder(requireContext())
             .apply {
-                setTitle(R.string.dialog_fragment1)
-                setMessage(R.string.dialogfragment_dialog1_content)
-                setPositiveButton(android.R.string.yes) { _, _ ->
-                    dismissAllowingStateLoss()
-                }
+//                setTitle(R.string.dialog_fragment1)
+//                setMessage(R.string.dialogfragment_dialog1_content)
+//                setPositiveButton(android.R.string.yes) { _, _ ->
+//                    dismissAllowingStateLoss()
+//
+                setView(LayoutInflater.from(getActivity()).inflate(R.layout.simple_dialog, null))
             }.create()
     }
 }
