@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:background="#84FFFF"
         android:text="@string/firebase_button_text1"
-        android:textColor="#000000"
+        android:textColor="@color/basic_text"
         app:layout_constraintEnd_toStartOf="@id/log_button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:layout_weight="1"
         android:background="@color/button_color2"
         android:text="@string/firebase_button_text2"
-        android:textColor="#000000"
+        android:textColor="@color/basic_text"
         app:layout_constraintEnd_toStartOf="@id/log_button3"
         app:layout_constraintStart_toEndOf="@id/log_button1"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,7 @@
         android:layout_weight="1"
         android:background="@color/button_color3"
         android:text="@string/firebase_button_text3"
-        android:textColor="#000000"
+        android:textColor="@color/basic_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/log_button2"
         app:layout_constraintTop_toTopOf="parent" />
