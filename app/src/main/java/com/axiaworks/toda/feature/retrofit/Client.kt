@@ -1,10 +1,9 @@
 package com.axiaworks.toda.feature.retrofit
 
-import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Client {
@@ -16,7 +15,7 @@ class Client {
 
     init {
         sRetrofit = Retrofit.Builder()
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .client(
@@ -37,7 +36,7 @@ class Client {
     }
 
 
-    fun getClient(context: Context): Retrofit {
+    fun getClient(): Retrofit {
         return sRetrofit
     }
 }
