@@ -29,6 +29,7 @@ class DialogFragmentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
 
         dialogfragment_button1.setOnClickListener {
             val dialogFragment1 = SimpleDialog()
@@ -42,20 +43,20 @@ class DialogFragmentFragment : Fragment() {
     }
 
     fun setLogToAdapter(dialogLog: String) {
-        Log.d("TAG", "フラグメント:$dialogLog")
         dialogLogDataSet.add(dialogLog)
-        initRecyclerView()
         adapter.setList(dialogLogDataSet)
+        adapter.notifyDataSetChanged()
     }
 
     private fun initRecyclerView() {
         dialog_log_view.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
-            adapter = DialogLogAdapter(dialogLogDataSet)
-
-            var scrollPosition = dialogLogDataSet.size - 1
-            dialog_log_view.scrollToPosition(scrollPosition)
+            adapter = this@DialogFragmentFragment.adapter
         }
+    }
+
+    private fun scrollToLatest() {
+        dialog_log_view.scrollToPosition(dialogLogDataSet.size - 1)
     }
 }
