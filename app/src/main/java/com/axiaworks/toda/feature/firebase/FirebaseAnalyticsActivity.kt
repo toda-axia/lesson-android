@@ -28,19 +28,19 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         initRecyclerView()
 
         log_button1.setOnClickListener {
-            logButtonAnalytics(1)
+            logButtonTapped(1)
             addLogData(1)
             scrollToLatest()
         }
 
         log_button2.setOnClickListener {
-            logButtonAnalytics(2)
+            logButtonTapped(2)
             addLogData(2)
             scrollToLatest()
         }
 
         log_button3.setOnClickListener {
-            logButtonAnalytics(3)
+            logButtonTapped(3)
             addLogData(3)
             scrollToLatest()
         }
@@ -70,7 +70,7 @@ class FirebaseAnalyticsActivity : AppCompatActivity() {
         }
     }
 
-    private fun logButtonAnalytics(button_number: Int) {
+    private fun logButtonTapped(button_number: Int) {
         AnalyticsUtils.sendClickEventLog(baseContext, "firebase_button$button_number")
     }
 
