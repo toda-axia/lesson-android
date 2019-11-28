@@ -27,7 +27,7 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
 
     override fun logSelectedButton(log: String) {
         val logDateTime: String = getTimeStamp()
-        val dialogLog: String = "$logDateTime: ユーザーは'$log'を選択しました"
+        val dialogLog = "$logDateTime: ユーザーは'$log'を選択しました"
         dialogFragmentFragment?.setLogToAdapter(dialogLog)
     }
 
