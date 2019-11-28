@@ -46,6 +46,7 @@ class LogDialog : DialogFragment() {
     }
 
     companion object {
+        @Suppress("unused")
         const val TAG = "LogDialog"
     }
 }
