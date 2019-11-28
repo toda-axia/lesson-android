@@ -25,11 +25,6 @@ class SimpleDialog : DialogFragment() {
 
         return AlertDialog.Builder(requireContext())
             .apply {
-//                setTitle(R.string.dialog_fragment1)
-//                setMessage(R.string.dialogfragment_dialog1_content)
-//                setPositiveButton(android.R.string.yes) { _, _ ->
-//                    dismissAllowingStateLoss()
-//
                 setView(LayoutInflater.from(getActivity()).inflate(R.layout.simple_dialog, null))
             }.create()
     }
