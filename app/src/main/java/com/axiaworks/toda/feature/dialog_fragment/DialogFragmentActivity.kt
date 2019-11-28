@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.ActivityDialogFragmentBinding
@@ -26,10 +25,9 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
         dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.dialogfragment_container) as DialogFragmentFragment
     }
 
-    override fun isSelectedLog(log: String) {
+    override fun isSelectedButton(log: String) {
         val logDateTime: String = getTimeStamp()
         val dialogLog: String = "$logDateTime: ユーザーは'$log'を選択しました"
-        Log.d("TAG", dialogLog)
         dialogFragmentFragment?.setLogToAdapter(dialogLog)
     }
 

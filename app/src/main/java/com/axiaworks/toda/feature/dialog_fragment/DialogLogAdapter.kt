@@ -30,9 +30,4 @@ class DialogLogAdapter(
     override fun getItemCount(): Int {
         return dialogLogDataSet.size
     }
-
-    fun setList(dialogLogList: ArrayList<String>) {
-        dialogLogDataSet = dialogLogList
-        notifyDataSetChanged()
-    }
 }

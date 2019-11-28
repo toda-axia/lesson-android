@@ -1,7 +1,6 @@
 package com.axiaworks.toda.feature.dialog_fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,8 +43,7 @@ class DialogFragmentFragment : Fragment() {
 
     fun setLogToAdapter(dialogLog: String) {
         dialogLogDataSet.add(dialogLog)
-        adapter.setList(dialogLogDataSet)
-        adapter.notifyDataSetChanged()
+        scrollToLatest()
     }
 
     private fun initRecyclerView() {

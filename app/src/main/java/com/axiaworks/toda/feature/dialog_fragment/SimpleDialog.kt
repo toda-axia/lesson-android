@@ -9,7 +9,6 @@ import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
-import kotlinx.android.synthetic.main.simple_dialog.view.*
 
 class SimpleDialog : DialogFragment() {
 
