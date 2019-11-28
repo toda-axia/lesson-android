@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:layout_marginStart="24dp"
-    android:layout_marginTop="32dp"
-    android:layout_marginEnd="24dp"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        style="?android:attr/buttonBarStyle">
         <TextView
             android:id="@+id/dialogfragment_dialog2_title"
             android:layout_width="match_parent"
@@ -27,19 +28,25 @@
             android:orientation="horizontal">
 
             <Button
+                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/dialogfragment_dialog2_negative_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/no" />
+                android:text="@string/no"
+                android:textColor="@color/basic_text"
+                android:background="@color/button_color1" />
 
             <Button
+                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/dialogfragment_dialog2_positive_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/yes"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textColor="@color/basic_text"
+                android:background="@color/button_color2" />
         </LinearLayout>
     </LinearLayout>
 </layout>
