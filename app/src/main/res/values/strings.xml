@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">lesson-android</string>
-    <string name="no">NO</string>
-    <string name="yes">YES</string>
 
 　　<!-- MainActivity -->
     <string name="main_menu_viewpager2">ViewPager2</string>
@@ -34,4 +32,6 @@
     <string name="dialog_fragment2">ダイアログ2</string>
     <string name="dialogfragment_dialog1_content">DialogFragmentの課題アプリです。</string>
     <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 </resources>
