@@ -7,7 +7,7 @@
     tools:context=".feature.retrofit.RetrofitActivity">
 
     <Button
-        android:id="@+id/get_button"
+        android:id="@+id/get_article_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -17,13 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/result_article_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/get_button"
+        app:layout_constraintTop_toBottomOf="@+id/get_article_button"
         tools:text="取得した記事を表示" />
 </androidx.constraintlayout.widget.ConstraintLayout>
