@@ -14,7 +14,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
-        android:background="#84FFFF"
+        android:background="@color/button_color1"
         android:text="@string/firebase_button_text1"
         android:textColor="@color/basic_text"
         app:layout_constraintEnd_toStartOf="@id/log_button2"
