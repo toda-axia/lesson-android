@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "98942904652",
+    "firebase_url": "https://lesson-android.firebaseio.com",
+    "project_id": "lesson-android",
+    "storage_bucket": "lesson-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98942904652:android:01076b3aa562763a7887e9",
+        "android_client_info": {
+          "package_name": "com.axiaworks.toda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98942904652-sophdikd1901g71mj95s9ij8atm90c8q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.axiaworks.toda",
+            "certificate_hash": "0e485b8c7dbc9d522f7e028481dcd40b48aa5a68"
+          }
+        },
+        {
+          "client_id": "98942904652-or35d0utipu6f48jsifsp9ptof2vjgh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOhAkKR25FU2lCKUwbfrECJjVaEtlagf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98942904652-or35d0utipu6f48jsifsp9ptof2vjgh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
