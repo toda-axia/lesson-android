@@ -14,11 +14,6 @@ class DialogFragmentFragment : Fragment() {
     private val dialogLogDataSet = arrayListOf<String>()
     private val adapter = DialogLogAdapter(dialogLogDataSet)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

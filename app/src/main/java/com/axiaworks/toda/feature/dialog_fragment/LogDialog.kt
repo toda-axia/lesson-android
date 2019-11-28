@@ -31,11 +31,11 @@ class LogDialog : DialogFragment() {
             LayoutInflater.from(context), R.layout.log_dialog, null, false
         ).apply {
             dialogfragmentDialog2NegativeButton.setOnClickListener {
-                listener?.isSelectedLog("NO")
+                listener?.logSelectedButton("NO")
                 dismissAllowingStateLoss()
             }
             dialogfragmentDialog2PositiveButton.setOnClickListener{
-                listener?.isSelectedLog("YES")
+                listener?.logSelectedButton("YES")
                 dismissAllowingStateLoss()
             }
         }
@@ -47,10 +47,9 @@ class LogDialog : DialogFragment() {
 
     companion object {
         const val TAG = "LogDialog"
-        fun getInstance() = LogDialog()
     }
 }
 
 interface LogCountListener {
-    fun isSelectedLog(log: String)
+    fun logSelectedButton(log: String)
 }
