@@ -35,8 +35,7 @@
             <TextView
                 android:id="@+id/result_article_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="取得した記事を表示" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

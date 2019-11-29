@@ -56,10 +56,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
         android:text="@string/main_menu_retrofit"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dialogfragment_button"
         app:layout_constraintTop_toBottomOf="@+id/firebase_analytics_button" />
 
     <Button
