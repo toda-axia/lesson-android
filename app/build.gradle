@@ -24,9 +24,6 @@ android {
     dataBinding {
         enabled = true
     }
-    dependencies {
-        kapt("groupId:artifactId:version")
-    }
 }
 
 dependencies {
