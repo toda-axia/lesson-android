@@ -6,6 +6,7 @@
     <string name="main_menu_recyclerview">RecyclerView</string>
     <string name="main_menu_glide">Glide</string>
     <string name="main_menu_firebaseanalytics">Firebase Analytics</string>
+    <string name="main_menu_dialogfragment">DialogFragment</string>
 
     <!-- RecyclerView -->
     <string name="recyclerview_vertical_button_text">縦</string>
@@ -25,4 +26,12 @@
     <string name="firebase_button_text1">ボタン1</string>
     <string name="firebase_button_text2">ボタン2</string>
     <string name="firebase_button_text3">ボタン3</string>
+
+    <!-- DialogFragment -->
+    <string name="dialog_fragment1">ダイアログ1</string>
+    <string name="dialog_fragment2">ダイアログ2</string>
+    <string name="dialogfragment_dialog1_content">DialogFragmentの課題アプリです。</string>
+    <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
 </resources>
