@@ -15,6 +15,10 @@ class LogDialog : DialogFragment() {
     private lateinit var binding: LogDialogBinding
     private var listener: LogCountListener? = null
 
+    companion object {
+        const val TAG = "LogDialog"
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as? LogCountListener
@@ -43,11 +47,6 @@ class LogDialog : DialogFragment() {
             setContentView(binding.root)
             window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
-    }
-
-    companion object {
-        @Suppress("unused")
-        const val TAG = "LogDialog"
     }
 }
 

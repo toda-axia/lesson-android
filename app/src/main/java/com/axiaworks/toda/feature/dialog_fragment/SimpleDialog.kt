@@ -9,6 +9,9 @@ import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
 
 class SimpleDialog : DialogFragment() {
+    companion object {
+        const val TAG = "SimpleDialog"
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         this.isCancelable = false
