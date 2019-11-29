@@ -30,7 +30,7 @@ class RetrofitActivity : AppCompatActivity() {
     }
 
     private fun getQiitaArticle() {
-        val service = Client().getClient().create(QiitaService::class.java)
+        val service = QiitaClient().getClient().create(QiitaService::class.java)
         observable = service.getItemsByTag("Android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
