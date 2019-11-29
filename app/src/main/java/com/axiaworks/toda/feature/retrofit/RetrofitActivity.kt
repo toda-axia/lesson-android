@@ -35,19 +35,7 @@ class RetrofitActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .retry(3)
-//        disposable = observable.subscribe(
-//            { responseBody: ResponseBody? ->
-//                responseBody?.let{
-//                    val body = it.string()
-//                    if (body.isNotEmpty()) {
-//                        result_article_text.text = body
-//                    }
-//                }
-//            },{ _ ->
-//            },{
-//            }
-//        )
-        disposable = observable.subscribe({
+        disposable = observable.subscribe {
                 responseBody: ResponseBody? ->
                 responseBody?.let {
                     val body = it.string()
@@ -55,8 +43,7 @@ class RetrofitActivity : AppCompatActivity() {
                         result_article_text.text = body
                     }
                 }
-            }, { _ ->
-            },{}
-        )
+            }
+
     }
 }
