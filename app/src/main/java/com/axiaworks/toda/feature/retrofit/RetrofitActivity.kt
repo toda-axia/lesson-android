@@ -18,6 +18,7 @@ class RetrofitActivity : AppCompatActivity() {
     private lateinit var disposable: Disposable
 
     companion object {
+        val service = QiitaClient().getClient().create(QiitaService::class.java)
         fun callingIntent(context: Context) = Intent(context, RetrofitActivity::class.java)
     }
 
@@ -25,21 +26,12 @@ class RetrofitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_retrofit)
 
-        val service = QiitaClient().getClient().create(QiitaService::class.java)
+        getQiitaInfo()
 
-        observable = service.getItemsByTag("Android")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .retry(3)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        disposable = observable.subscribe(
-            { list -> doSomethingToList(list) },
-            { t -> onError(t) }
-        )
+        swipe_refresh_layout.setOnRefreshListener {
+            getQiitaInfo()
+            swipe_refresh_layout.isRefreshing = false
+        }
     }
 
     override fun onPause() {
@@ -51,5 +43,18 @@ class RetrofitActivity : AppCompatActivity() {
     private fun doSomethingToList(list: List<QiitaInfo>) {
         qiita_title_view.adapter = QiitaInfoAdapter(this, list)
         qiita_title_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    private fun getQiitaInfo() {
+        observable = service.getItemsByTag("Android")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .retry(3)
+
+        disposable = observable
+            .subscribe(
+                { list -> doSomethingToList(list) }
+                , { t -> onError(t) }
+            )
     }
 }
