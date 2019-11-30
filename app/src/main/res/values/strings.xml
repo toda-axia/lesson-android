@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">lesson-android</string>
 
-　　<!-- MainActivity -->
+    <!-- MainActivity -->
     <string name="main_menu_viewpager2">ViewPager2</string>
     <string name="main_menu_recyclerview">RecyclerView</string>
     <string name="main_menu_glide">Glide</string>
@@ -35,7 +35,4 @@
     <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
-
-    <!-- Retrofit -->
-    <string name="retrofit_get_article">記事取得</string>
 </resources>
