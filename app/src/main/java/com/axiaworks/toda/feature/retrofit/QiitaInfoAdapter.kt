@@ -25,6 +25,10 @@ class QiitaInfoAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: QiitaInfoViewHolder, position: Int) {
         holder.qiitaTitle.text = qiitaInfoList[position].title
+
+        holder.itemView.setOnClickListener {
+            context.startActivity(QiitaArticleActivity.callingIntent(context, qiitaInfoList[position].title ,qiitaInfoList[position].body))
+        }
     }
 
     inner class QiitaInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
