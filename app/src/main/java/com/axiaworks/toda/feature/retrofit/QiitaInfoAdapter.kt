@@ -24,9 +24,7 @@ class QiitaInfoAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(holder: QiitaInfoViewHolder, position: Int) {
-        holder.let {
-            it.qiitaTitle.text = "${qiitaInfoList[position].title}"
-        }
+        holder.qiitaTitle.text = qiitaInfoList[position].title
     }
 
     inner class QiitaInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
