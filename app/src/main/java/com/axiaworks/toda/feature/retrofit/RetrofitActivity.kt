@@ -18,7 +18,6 @@ class RetrofitActivity : AppCompatActivity() {
     private lateinit var disposable: Disposable
 
     companion object {
-        val service = QiitaClient().getClient().create(QiitaService::class.java)
         fun callingIntent(context: Context) = Intent(context, RetrofitActivity::class.java)
     }
 
@@ -46,6 +45,7 @@ class RetrofitActivity : AppCompatActivity() {
     }
 
     private fun getQiitaInfo() {
+        val service = QiitaClient().getClient().create(QiitaService::class.java)
         observable = service.getItemsByTag("Android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

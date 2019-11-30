@@ -27,7 +27,7 @@ class QiitaInfoAdapter(private val context: Context,
         holder.qiitaTitle.text = qiitaInfoList[position].title
 
         holder.itemView.setOnClickListener {
-            context.startActivity(QiitaArticleActivity.callingIntent(context, qiitaInfoList[position].title ,qiitaInfoList[position].body))
+            context.startActivity(QiitaArticleActivity.callingIntent(context, qiitaInfoList[position].title, position))
         }
     }
 
