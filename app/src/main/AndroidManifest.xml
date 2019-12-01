@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".feature.dialog_fragment2.DialogFragment2Activity"></activity>
         <activity android:name=".feature.dialog_fragment.DialogFragmentActivity" />
         <activity android:name=".feature.glide.GlideActivity" />
         <activity android:name=".feature.firebase.FirebaseAnalyticsActivity" />

@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">lesson-android</string>
 
-　　<!-- MainActivity -->
+    <!-- MainActivity -->
     <string name="main_menu_viewpager2">ViewPager2</string>
     <string name="main_menu_recyclerview">RecyclerView</string>
     <string name="main_menu_glide">Glide</string>
     <string name="main_menu_firebaseanalytics">Firebase Analytics</string>
     <string name="main_menu_dialogfragment">DialogFragment</string>
+    <string name="main_menu_dialogfragment2">DialogFragment2</string>
 
     <!-- RecyclerView -->
     <string name="recyclerview_vertical_button_text">縦</string>
@@ -34,4 +35,9 @@
     <string name="dialogfragment_dialog2_content">YES/NOのログを取得します。</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
+
+    <!-- DialogFragment2 -->
+    <string name="date_text_field_hint">日付を入力して下さい</string>
+    <string name="datepicker_dialog">DatePickerDialog</string>
+
 </resources>
