@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.axiaworks.toda.R
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -13,7 +12,6 @@ import kotlinx.android.synthetic.main.activity_retrofit.*
 import okhttp3.ResponseBody
 
 class RetrofitActivity : AppCompatActivity() {
-    private lateinit var observable: Observable<ResponseBody>
     private lateinit var disposable: Disposable
 
     companion object {
@@ -24,24 +22,25 @@ class RetrofitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_retrofit)
 
-        setTagforQiita("Android")
+        val service = QiitaClient().getClient().create(QiitaService::class.java)
 
         get_article_button.setOnClickListener {
-            getQiitaArticle()
+            getQiitaArticle(service)
         }
     }
 
-    private fun setTagforQiita(tag: String) {
-        val service = QiitaClient().getClient().create(QiitaService::class.java)
-        observable = service.getItemsByTag(tag)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .retry(3)
+    override fun onPause() {
+        super.onPause()
+
+        disposable.dispose()
     }
 
-    private fun getQiitaArticle() {
-        disposable = observable.subscribe {
-                responseBody: ResponseBody? ->
+    private fun getQiitaArticle(service: QiitaService) {
+        disposable = service.getItemsByTag("Android")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe{
+                    responseBody: ResponseBody? ->
                 responseBody?.let {
                     val body = it.string()
                     if (body.isNotEmpty()) {
