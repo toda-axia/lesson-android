@@ -24,17 +24,22 @@ class RetrofitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_retrofit)
 
+        setTagforQiita("Android")
+
         get_article_button.setOnClickListener {
             getQiitaArticle()
         }
     }
 
-    private fun getQiitaArticle() {
+    private fun setTagforQiita(tag: String) {
         val service = QiitaClient().getClient().create(QiitaService::class.java)
-        observable = service.getItemsByTag("Android")
+        observable = service.getItemsByTag(tag)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .retry(3)
+    }
+
+    private fun getQiitaArticle() {
         disposable = observable.subscribe {
                 responseBody: ResponseBody? ->
                 responseBody?.let {
@@ -44,6 +49,5 @@ class RetrofitActivity : AppCompatActivity() {
                     }
                 }
             }
-
     }
 }
