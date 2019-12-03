@@ -38,4 +38,5 @@
 
     <!-- Retrofit -->
     <string name="retrofit_get_article">記事取得</string>
+    <string name="failed_to_get_article">記事情報の取得に失敗しました</string>
 </resources>

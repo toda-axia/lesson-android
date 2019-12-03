@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.axiaworks.toda.R
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -51,10 +52,15 @@ class RetrofitActivity : AppCompatActivity() {
                 }
             },{ t ->
                 onError(t)
+                displayErrorToUser()
             })
     }
 
     private fun onError(e: Throwable?) {
         Log.e(TAG, "onError", e)
+    }
+
+    private fun displayErrorToUser() {
+        Toast.makeText(this, R.string.failed_to_get_article, Toast.LENGTH_SHORT).show()
     }
 }
