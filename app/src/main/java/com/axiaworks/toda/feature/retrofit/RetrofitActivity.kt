@@ -3,6 +3,7 @@ package com.axiaworks.toda.feature.retrofit
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.axiaworks.toda.R
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,7 @@ class RetrofitActivity : AppCompatActivity() {
     private lateinit var disposable: Disposable
 
     companion object {
+        private const val TAG: String = "Retrofit"
         fun callingIntent(context: Context) = Intent(context, RetrofitActivity::class.java)
     }
 
@@ -39,7 +41,7 @@ class RetrofitActivity : AppCompatActivity() {
         disposable = service.getItemsByTag("Android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{
+            .subscribe({
                     responseBody: ResponseBody? ->
                 responseBody?.let {
                     val body = it.string()
@@ -47,6 +49,12 @@ class RetrofitActivity : AppCompatActivity() {
                         result_article_text.text = body
                     }
                 }
-            }
+            },{ t ->
+                onError(t)
+            })
+    }
+
+    private fun onError(e: Throwable?) {
+        Log.e(TAG, "onError", e)
     }
 }
