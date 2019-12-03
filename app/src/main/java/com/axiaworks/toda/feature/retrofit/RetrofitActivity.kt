@@ -42,15 +42,14 @@ class RetrofitActivity : AppCompatActivity() {
         disposable = service.getItemsByTag("Android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                    responseBody: ResponseBody? ->
+            .subscribe({ responseBody: ResponseBody? ->
                 responseBody?.let {
                     val body = it.string()
                     if (body.isNotEmpty()) {
                         result_article_text.text = body
                     }
                 }
-            },{ t ->
+            }, { t ->
                 onError(t)
                 displayErrorToUser()
             })
