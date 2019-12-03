@@ -11,7 +11,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit.*
-import okhttp3.ResponseBody
 
 class RetrofitActivity : AppCompatActivity() {
     private lateinit var disposable: Disposable
@@ -42,17 +41,19 @@ class RetrofitActivity : AppCompatActivity() {
         disposable = service.getItemsByTag("Android")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ responseBody: ResponseBody? ->
-                responseBody?.let {
-                    val body = it.string()
-                    if (body.isNotEmpty()) {
-                        result_article_text.text = body
+            .subscribe(
+                { responseBody ->
+                    responseBody?.let {
+                        val body = it.string()
+                        if (body.isNotEmpty()) {
+                            result_article_text.text = body
+                        }
                     }
+                }, { t ->
+                    onError(t)
+                    displayErrorToUser()
                 }
-            }, { t ->
-                onError(t)
-                displayErrorToUser()
-            })
+            )
     }
 
     private fun onError(e: Throwable?) {
