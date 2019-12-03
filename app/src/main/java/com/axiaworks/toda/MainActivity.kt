@@ -7,6 +7,7 @@ import com.axiaworks.toda.feature.glide.GlideActivity
 import com.axiaworks.toda.feature.firebase.FirebaseAnalyticsActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
+import com.axiaworks.toda.feature.retrofit.RetrofitActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         dialogfragment_button.setOnClickListener {
             startActivity(DialogFragmentActivity.callingIntent(this))
+        }
+
+        retrofit_button.setOnClickListener {
+            startActivity(RetrofitActivity.callingIntent(this))
         }
     }
 }
