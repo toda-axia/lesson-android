@@ -22,7 +22,7 @@ class DialogFragmentActivity : AppCompatActivity(), LogCountListener {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dialog_fragment)
-        dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.dialogfragment_container) as DialogFragmentFragment
+        dialogFragmentFragment = supportFragmentManager.findFragmentById(R.id.qiita_article_container) as DialogFragmentFragment
     }
 
     override fun logSelectedButton(log: String) {

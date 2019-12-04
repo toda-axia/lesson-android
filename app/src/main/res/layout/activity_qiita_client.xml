@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.dialog_fragment.DialogFragmentActivity">
 
         <fragment
             android:id="@+id/qiita_article_container"
-            android:name="com.axiaworks.toda.feature.dialog_fragment.DialogFragmentFragment"
+            android:name="com.axiaworks.toda.feature.qiitaclient.ArticleFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout="@layout/fragment_dialog" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout="@layout/fragment_article" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
