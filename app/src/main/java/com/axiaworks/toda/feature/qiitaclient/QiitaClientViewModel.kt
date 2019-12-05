@@ -16,7 +16,8 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     private val qiitaService: QiitaService by inject()
     private val disposables = CompositeDisposable()
     val result: MutableLiveData<String> = MutableLiveData()
-    val resultTitles: MutableLiveData<List<QiitaInfo>> = MutableLiveData()
+    val androidArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
+    val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
 
     override fun onCleared() {
         super.onCleared()
@@ -24,27 +25,32 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
         disposables.clear()
     }
 
-    fun getQiitaArticle(tag: String) {
+    private fun getQiitaArticle(tag: String) {
+        qiitaApiProgressCount.value?.plus(1)
         qiitaService.getItemsByTag(tag)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { list ->
-                    list?.let {
-                        val titleList = it
-                        if (titleList.isNotEmpty()){
-                            result.value = "成功"
-                        } else {
-                            result.value = "失敗"
+                    qiitaApiProgressCount.value?.minus(1)
+                    list?.let {titleList ->
+                        if (tag == "Android") {
+                            androidArticleList.value = titleList
                         }
-                    }?:run {
-                        result.value = "失敗"
+                        titleList.forEach {
+                            Log.d("ViewModel", it.title)
+                        }
                     }
-                }, { t->
-                    result.value = "失敗"
+                }, { t ->
+                    Log.w("QiitaViewModel", t)
+                    qiitaApiProgressCount.value?.minus(1)
                 }
             ).also {
                 disposables.add(it)
             }
+    }
+
+    fun getAndroidArticle() {
+        getQiitaArticle("Android")
     }
 }

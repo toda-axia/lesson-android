@@ -42,10 +42,10 @@ class QiitaClientActivity: AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        qiitaClientViewModel.getQiitaArticle("Android")
-        qiitaClientViewModel.result.observe(this, Observer{
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        })
+//        qiitaClientViewModel.getQiitaArticle("Android")
+//        qiitaClientViewModel.result.observe(this, Observer{
+//            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+//        })
 
     }
 }
