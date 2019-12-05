@@ -44,10 +44,10 @@ class RetrofitActivity : AppCompatActivity() {
             .subscribe(
                 { responseBody ->
                     responseBody?.let {
-                        val body = it.string()
-                        if (body.isNotEmpty()) {
-                            result_article_text.text = body
-                        }
+//                        val body = it.string()
+//                        if (body.isNotEmpty()) {
+//                            result_article_text.text = body
+//                        }
                     }
                 }, { t ->
                     onError(t)
