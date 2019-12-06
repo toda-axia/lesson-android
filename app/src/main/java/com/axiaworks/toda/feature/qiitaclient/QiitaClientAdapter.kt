@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.R
 
+// ビューHolder
+// adapterの処理　（inflate）
+
 class QiitaClientAdapter(private val context: Context,
                        private val qiitaInfoList: List<QiitaInfo>) : RecyclerView.Adapter<QiitaClientAdapter.QiitaInfoViewHolder>() {
 
