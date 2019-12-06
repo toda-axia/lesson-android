@@ -11,8 +11,6 @@ import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_qiita_client.*
 import kotlinx.android.synthetic.main.fragment_article.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
-import java.util.*
-
 
 class ArticleFragment: Fragment() {
     private val qiitaClientViewModel: QiitaClientViewModel by sharedViewModel()
@@ -28,10 +26,10 @@ class ArticleFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         swipe_to_refresh_qiita_client.setOnRefreshListener{
+            swipe_to_refresh_qiita_client.isRefreshing = false
             qiitaClientViewModel.getAndroidArticle()
             qiita_api_progress
         }
-
     }
 
     override fun onResume() {

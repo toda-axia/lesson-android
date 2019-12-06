@@ -23,13 +23,13 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     }
 
     private fun getQiitaArticle(tag: String) {
-        qiitaApiProgressCount.value?.plus(1)
+        qiitaApiProgressCount.value = qiitaApiProgressCount.value!! + 1
         qiitaService.getItemsByTag(tag)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { list ->
-                    qiitaApiProgressCount.value?.minus(1)
+                    qiitaApiProgressCount.value = qiitaApiProgressCount.value!! - 1
                     list?.let {titleList ->
                         if (tag == "Android") {
                             androidArticleList.value = titleList
@@ -40,7 +40,7 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
                     }
                 }, { t ->
                     Log.w("QiitaViewModel", t)
-                    qiitaApiProgressCount.value?.minus(1)
+                    qiitaApiProgressCount.value = qiitaApiProgressCount.value!! - 1
                 }
             ).also {
                 disposables.add(it)
