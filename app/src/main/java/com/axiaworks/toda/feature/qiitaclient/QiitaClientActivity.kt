@@ -40,7 +40,8 @@ class QiitaClientActivity: AppCompatActivity() {
 
         qiita_pager.adapter = QiitaPageAdapter(this)
         TabLayoutMediator(qiita_tabs, qiita_pager) { tab, position ->
-            tab.text = "Tab ${position + 1}"
+            val tabArray = arrayListOf("Android", "Firebase", "Flutter")
+            tab.text = tabArray[position]
         }.attach()
     }
 }
