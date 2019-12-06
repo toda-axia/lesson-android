@@ -3,19 +3,16 @@ package com.axiaworks.toda.feature.qiitaclient
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.axiaworks.toda.feature.retrofit.QiitaService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_article.*
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
 class QiitaClientViewModel: ViewModel(), KoinComponent {
     private val qiitaService: QiitaService by inject()
     private val disposables = CompositeDisposable()
-    val result: MutableLiveData<String> = MutableLiveData()
     val androidArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
 
