@@ -14,6 +14,8 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     private val qiitaService: QiitaService by inject()
     private val disposables = CompositeDisposable()
     val androidArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
+    val firebaseArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
+    val flutterArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
 
     override fun onCleared() {
@@ -34,6 +36,12 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
                         if (tag == "Android") {
                             androidArticleList.value = titleList
                         }
+                        if (tag == "Firebase") {
+                            firebaseArticleList.value = titleList
+                        }
+                        if (tag == "Flutter") {
+                            flutterArticleList.value = titleList
+                        }
                         titleList.forEach {
                             Log.d("ViewModel", it.title)
                         }
@@ -49,5 +57,13 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
 
     fun getAndroidArticle() {
         getQiitaArticle("Android")
+    }
+
+    fun getFirebaseArticle() {
+        getQiitaArticle("Firebase")
+    }
+
+    fun getFlutterArticle() {
+        getQiitaArticle("Flutter")
     }
 }

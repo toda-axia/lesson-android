@@ -25,11 +25,11 @@ class ArticleFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        swipe_to_refresh_qiita_client.setOnRefreshListener{
-            swipe_to_refresh_qiita_client.isRefreshing = false
-            qiitaClientViewModel.getAndroidArticle()
-            qiita_api_progress
-        }
+//        swipe_to_refresh_qiita_client.setOnRefreshListener{
+//            swipe_to_refresh_qiita_client.isRefreshing = false
+//            qiitaClientViewModel.getAndroidArticle()
+//            qiita_api_progress
+//        }
     }
 
     override fun onResume() {
@@ -37,6 +37,28 @@ class ArticleFragment: Fragment() {
 
         qiitaClientViewModel.getAndroidArticle()
         qiitaClientViewModel.androidArticleList.observe(this, Observer{
+            it?.let{qiitaInfoList ->
+                qiita_client_title_view.adapter =
+                    QiitaClientAdapter(requireContext(), qiitaInfoList)
+                qiitaInfoList.forEach {
+                    Log.d("ArticleFragment", it.title)
+                }
+            }
+            qiita_client_title_view.adapter?.notifyDataSetChanged()
+        })
+        qiitaClientViewModel.getFirebaseArticle()
+        qiitaClientViewModel.firebaseArticleList.observe(this, Observer{
+            it?.let{qiitaInfoList ->
+                qiita_client_title_view.adapter =
+                    QiitaClientAdapter(requireContext(), qiitaInfoList)
+                qiitaInfoList.forEach {
+                    Log.d("ArticleFragment", it.title)
+                }
+            }
+            qiita_client_title_view.adapter?.notifyDataSetChanged()
+        })
+        qiitaClientViewModel.getFlutterArticle()
+        qiitaClientViewModel.flutterArticleList.observe(this, Observer{
             it?.let{qiitaInfoList ->
                 qiita_client_title_view.adapter =
                     QiitaClientAdapter(requireContext(), qiitaInfoList)
