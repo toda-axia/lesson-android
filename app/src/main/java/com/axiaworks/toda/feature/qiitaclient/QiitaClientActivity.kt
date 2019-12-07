@@ -55,7 +55,7 @@ class QiitaPageAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> ArticleFragment("Android")
+            0 -> ArticleFragment()
             1 -> ArticleFragment()
             2 -> ArticleFragment()
             else -> SliderPage1Fragment()

@@ -1,0 +1,5 @@
+package com.axiaworks.toda.feature.qiitaclient
+
+class QiitaContentDialogFragment: DialogFragment() {
+
+}
