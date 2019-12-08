@@ -16,31 +16,36 @@
 
         <Button
             android:id="@+id/vertical_button"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
             android:layout_weight="1"
-            android:background="@color/button_color1"
+            android:background="@android:color/darker_gray"
             android:text="@string/recyclerview_vertical_button_text"
             android:textColor="@color/basic_text" />
 
         <Button
             android:id="@+id/horizon_button"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:layout_weight="1"
-            android:background="@color/button_color2"
+            android:background="@android:color/darker_gray"
             android:text="@string/recyclerview_horizontal_button"
             android:textColor="@color/basic_text" />
 
         <Button
             android:id="@+id/grid_button"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:layout_weight="1"
-            android:background="@color/button_color3"
+            android:background="@android:color/darker_gray"
             android:text="@string/recyclerview_grid_button_text"
             android:textColor="@color/basic_text" />
     </LinearLayout>
@@ -51,5 +56,4 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scrollbars="vertical" />
-
 </LinearLayout>

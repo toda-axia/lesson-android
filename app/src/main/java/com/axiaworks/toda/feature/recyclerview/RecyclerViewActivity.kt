@@ -41,7 +41,7 @@ class RecyclerViewActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        for (i in 1..20) {
+        for (i in 1..50) {
             dataSet.add(String.format(Locale.ENGLISH, "Data_0%d", i))
         }
     }

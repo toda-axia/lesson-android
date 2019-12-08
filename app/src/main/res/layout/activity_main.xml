@@ -8,54 +8,65 @@
 
     <Button
         android:id="@+id/fragment_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/main_menu_viewpager2"
         android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/recycler_view_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/glide_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/main_menu_glide"
         android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/firebase_analytics_button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_button" />
 
     <Button
         android:id="@+id/recycler_view_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/main_menu_recyclerview"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/fragment_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/firebase_analytics_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/main_menu_firebaseanalytics"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/glide_button"
         app:layout_constraintTop_toBottomOf="@+id/recycler_view_button" />
 
     <Button
         android:id="@+id/retrofit_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/main_menu_retrofit"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,12 +75,14 @@
 
     <Button
         android:id="@+id/dialogfragment_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/main_menu_dialogfragment"
         android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/retrofit_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/glide_button" />
 
