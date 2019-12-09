@@ -5,11 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_qiita_client.*
 import kotlinx.android.synthetic.main.fragment_article.*
+import kotlinx.android.synthetic.main.list_item_qiita_info.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class ArticleFragment: Fragment() {
@@ -39,7 +42,7 @@ class ArticleFragment: Fragment() {
         qiitaClientViewModel.androidArticleList.observe(this, Observer{
             it?.let{qiitaInfoList ->
                 qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList)
+                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 qiitaInfoList.forEach {
                     Log.d("ArticleFragment", it.title)
                 }
@@ -50,7 +53,7 @@ class ArticleFragment: Fragment() {
         qiitaClientViewModel.firebaseArticleList.observe(this, Observer{
             it?.let{qiitaInfoList ->
                 qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList)
+                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 qiitaInfoList.forEach {
                     Log.d("ArticleFragment", it.title)
                 }
@@ -61,7 +64,7 @@ class ArticleFragment: Fragment() {
         qiitaClientViewModel.flutterArticleList.observe(this, Observer{
             it?.let{qiitaInfoList ->
                 qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList)
+                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 qiitaInfoList.forEach {
                     Log.d("ArticleFragment", it.title)
                 }
@@ -69,6 +72,4 @@ class ArticleFragment: Fragment() {
             qiita_client_title_view.adapter?.notifyDataSetChanged()
         })
     }
-
-
 }

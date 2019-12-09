@@ -28,13 +28,20 @@ class QiitaClientActivity: AppCompatActivity() {
         setContentView(R.layout.activity_qiita_client)
 
         qiitaClientViewModel.qiitaApiProgressCount.observe(this, Observer {
-            Log.e("QiitaClientActivity", "$it")
             it?.let {count ->
                 if (count == 0){
                     progress_container.visibility = View.GONE
                 } else {
                     progress_container.visibility = View.VISIBLE
                 }
+            }
+        })
+
+        qiitaClientViewModel.qiitaTouchItem.observe(this, Observer {
+            Log.d("QiitaClientActivity", "${qiitaClientViewModel.qiitaTouchItem.value}が押されました")
+            val qiitaContentDialog = QiitaContentDialogFragment()
+            if (qiitaClientViewModel.qiitaTouchItem.value != -1) {
+                qiitaContentDialog.show(supportFragmentManager, "QiitaContentDialogFragment")
             }
         })
 

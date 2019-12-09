@@ -17,6 +17,7 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     val firebaseArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val flutterArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
+    val qiitaTouchItem: MutableLiveData<Int> = MutableLiveData(-1)
 
     override fun onCleared() {
         super.onCleared()
@@ -66,4 +67,10 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     fun getFlutterArticle() {
         getQiitaArticle("Flutter")
     }
+
+    fun tapItems(position: Int) {
+        qiitaTouchItem.value = position
+    }
+
+
 }
