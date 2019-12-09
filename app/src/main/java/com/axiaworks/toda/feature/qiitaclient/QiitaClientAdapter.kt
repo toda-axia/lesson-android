@@ -33,7 +33,7 @@ class QiitaClientAdapter(private val context: Context,
         holder.binding.qiitainfo = data
 
         holder.itemView.setOnClickListener {
-            viewModel.tapItems(position)
+            viewModel.tapItems(data.id)
         }
     }
 

@@ -37,10 +37,10 @@ class QiitaClientActivity: AppCompatActivity() {
             }
         })
 
-        qiitaClientViewModel.qiitaTouchItem.observe(this, Observer {
+        qiitaClientViewModel.qiitaId.observe(this, Observer {
             Log.d("QiitaClientActivity", "${qiitaClientViewModel.qiitaTouchItem.value}が押されました")
             val qiitaContentDialog = QiitaContentDialogFragment()
-            if (qiitaClientViewModel.qiitaTouchItem.value != -1) {
+            if (qiitaClientViewModel.qiitaId.value != "") {
                 qiitaContentDialog.show(supportFragmentManager, "QiitaContentDialogFragment")
             }
         })

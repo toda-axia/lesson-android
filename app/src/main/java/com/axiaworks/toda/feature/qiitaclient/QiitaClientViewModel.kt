@@ -18,6 +18,7 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     val flutterArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
     val qiitaTouchItem: MutableLiveData<Int> = MutableLiveData(-1)
+    val qiitaId: MutableLiveData<String> = MutableLiveData("")
 
     override fun onCleared() {
         super.onCleared()
@@ -68,8 +69,8 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
         getQiitaArticle("Flutter")
     }
 
-    fun tapItems(position: Int) {
-        qiitaTouchItem.value = position
+    fun tapItems(id: String) {
+        qiitaId.value = id
     }
 
 
