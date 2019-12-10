@@ -49,27 +49,5 @@ class ArticleFragment: Fragment() {
             }
             qiita_client_title_view.adapter?.notifyDataSetChanged()
         })
-        qiitaClientViewModel.getFirebaseArticle()
-        qiitaClientViewModel.firebaseArticleList.observe(this, Observer{
-            it?.let{qiitaInfoList ->
-                qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                qiitaInfoList.forEach {
-                    Log.d("ArticleFragment", it.title)
-                }
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
-        qiitaClientViewModel.getFlutterArticle()
-        qiitaClientViewModel.flutterArticleList.observe(this, Observer{
-            it?.let{qiitaInfoList ->
-                qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                qiitaInfoList.forEach {
-                    Log.d("ArticleFragment", it.title)
-                }
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
     }
 }
