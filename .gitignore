@@ -14,4 +14,4 @@
 .externalNativeBuild
 .cxx
 app/debug
-app/src/main/java/com.axiaworks.toda/feature/qiitaclient/QiitaClientSequence.puml
+app/src/main/java/com/axiaworks/toda/feature/qiitaclient/QiitaClientSequence.puml
