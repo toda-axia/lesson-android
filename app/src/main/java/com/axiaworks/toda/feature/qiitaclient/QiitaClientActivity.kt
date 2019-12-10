@@ -62,9 +62,9 @@ class QiitaPageAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> ArticleFragment()
-            1 -> ArticleFragment()
-            2 -> ArticleFragment()
+            0 -> ArticleFragment.newInstance("Android")
+            1 -> ArticleFragment.newInstance("Firebase")
+            2 -> ArticleFragment.newInstance("Flutter")
             else -> SliderPage1Fragment()
         }
     }

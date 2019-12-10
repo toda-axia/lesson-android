@@ -17,37 +17,74 @@ import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class ArticleFragment: Fragment() {
     private val qiitaClientViewModel: QiitaClientViewModel by sharedViewModel()
+    private var tagText = ""
+
+    companion object{
+        fun newInstance(tag: String): ArticleFragment {
+            val fragment = ArticleFragment()
+            var bundle = Bundle()
+            bundle.putString("QIITA_TAG", tag)
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (arguments != null) {
+            tagText = arguments?.getString("QIITA_TAG")!!
+        }
         return inflater.inflate(R.layout.fragment_article, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        swipe_to_refresh_qiita_client.setOnRefreshListener{
-//            swipe_to_refresh_qiita_client.isRefreshing = false
-//            qiitaClientViewModel.getAndroidArticle()
-//            qiita_api_progress
-//        }
+        qiitaClientViewModel.androidArticleList.observe(this, Observer {
+            it?.let { qiitaInfoList ->
+                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+            }
+            qiita_client_title_view.adapter?.notifyDataSetChanged()
+        })
+        qiitaClientViewModel.firebaseArticleList.observe(this, Observer {
+            it?.let { qiitaInfoList ->
+                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+            }
+            qiita_client_title_view.adapter?.notifyDataSetChanged()
+        })
+        qiitaClientViewModel.flutterArticleList.observe(this, Observer {
+            it?.let { qiitaInfoList ->
+                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+            }
+            qiita_client_title_view.adapter?.notifyDataSetChanged()
+        })
+
+        swipe_to_refresh_qiita_client.setOnRefreshListener{
+            swipe_to_refresh_qiita_client.isRefreshing = false
+            if (tagText == "Android") {
+                qiitaClientViewModel.getAndroidArticle()
+            }
+            if (tagText == "Firebase") {
+                qiitaClientViewModel.getFirebaseArticle()
+            }
+            if (tagText == "Flutter") {
+                qiitaClientViewModel.getFlutterArticle()
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-
-        qiitaClientViewModel.getAndroidArticle()
-        qiitaClientViewModel.androidArticleList.observe(this, Observer{
-            it?.let{qiitaInfoList ->
-                qiita_client_title_view.adapter =
-                    QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                qiitaInfoList.forEach {
-                    Log.d("ArticleFragment", it.title)
-                }
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
+        if (tagText == "Android") {
+            qiitaClientViewModel.getAndroidArticle()
+        }
+        if (tagText == "Firebase") {
+            qiitaClientViewModel.getFirebaseArticle()
+        }
+        if (tagText == "Flutter") {
+            qiitaClientViewModel.getFlutterArticle()
+        }
     }
 }
