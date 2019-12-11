@@ -13,9 +13,12 @@ import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.FragmentQiitaContentDialogBinding
 import com.axiaworks.toda.feature.retrofit.QiitaService
+import com.bumptech.glide.Glide
 import io.noties.markwon.Markwon
 import io.noties.markwon.SpannableBuilder
+import io.noties.markwon.ext.tables.TablePlugin
 import io.noties.markwon.image.ImagesPlugin
+import io.noties.markwon.image.glide.GlideImagesPlugin
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -50,24 +53,6 @@ class QiitaContentDialogFragment: DialogFragment() {
         return builder.create()
     }
 
-//    private fun getQiitaContent(itemId: String) {
-//        qiitaService.getArticleByItemId(itemId)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe(
-//                {
-//                    it.let { qiitaInfo ->
-//                        binding.qiitacontent = qiitaInfo
-//                        val markwon = Markwon.create(requireContext())
-//                        binding.qiitacontent.body = markwon.toMarkdown(binding.qiitacontent.body)?.toString()
-//                    }
-//                }, { t ->
-//                }
-//            ).also {
-//                disposables.add(it)
-//            }
-//    }
-
     private fun getQiitaContent(itemId: String) {
         qiitaService.getArticleByItemId(itemId)
             .subscribeOn(Schedulers.io())
@@ -76,9 +61,11 @@ class QiitaContentDialogFragment: DialogFragment() {
                 {
                     it.let { qiitaInfo ->
                         binding.qiitaTitleText.text = qiitaInfo.title
-                        val markwon = Markwon.create(requireContext())
-//                        val markwon = Markwon.builder(requireContext()).usePlugin(ImagesPlugin.create())
-                        markwon.setMarkdown(binding.qiitaContentText, qiitaInfo.body)
+                        Markwon.builder(requireContext())
+                            .usePlugin(TablePlugin.create(requireContext()))
+                            .usePlugin(GlideImagesPlugin.create(Glide.with(requireContext())))
+                            .build()
+                            .setMarkdown(binding.qiitaContentText, qiitaInfo.body)
                     }
                 }, { t ->
                 }
