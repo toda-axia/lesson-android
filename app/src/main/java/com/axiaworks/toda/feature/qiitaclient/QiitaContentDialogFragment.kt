@@ -5,24 +5,18 @@ import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.bind
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.FragmentQiitaContentDialogBinding
 import com.axiaworks.toda.feature.retrofit.QiitaService
 import com.bumptech.glide.Glide
 import io.noties.markwon.Markwon
-import io.noties.markwon.SpannableBuilder
 import io.noties.markwon.ext.tables.TablePlugin
-import io.noties.markwon.image.ImagesPlugin
 import io.noties.markwon.image.glide.GlideImagesPlugin
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_qiita_content_dialog.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -33,7 +27,7 @@ class QiitaContentDialogFragment: DialogFragment() {
     private lateinit var binding: FragmentQiitaContentDialogBinding
 
     companion object {
-        const val TAG = "QiitaContentDialogFragment"
+        const val TAG = "QiitaContentDialog"
     }
 
     override fun onResume() {
@@ -68,6 +62,7 @@ class QiitaContentDialogFragment: DialogFragment() {
                             .setMarkdown(binding.qiitaContentText, qiitaInfo.body)
                     }
                 }, { t ->
+                    Log.w(TAG, t)
                 }
             ).also {
                 disposables.add(it)

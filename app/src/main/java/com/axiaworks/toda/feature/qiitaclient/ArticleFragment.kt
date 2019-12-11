@@ -17,7 +17,7 @@ class ArticleFragment: Fragment() {
     companion object{
         fun newInstance(tag: String): ArticleFragment {
             val fragment = ArticleFragment()
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putString("QIITA_TAG", tag)
             fragment.arguments = bundle
             return fragment
@@ -36,25 +36,39 @@ class ArticleFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val arrayArticleList = arrayListOf(
+            qiitaClientViewModel.androidArticleList,
+            qiitaClientViewModel.firebaseArticleList,
+            qiitaClientViewModel.flutterArticleList
+        )
 
-        qiitaClientViewModel.androidArticleList.observe(this, Observer {
-            it?.let { qiitaInfoList ->
-                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
-        qiitaClientViewModel.firebaseArticleList.observe(this, Observer {
-            it?.let { qiitaInfoList ->
-                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
-        qiitaClientViewModel.flutterArticleList.observe(this, Observer {
-            it?.let { qiitaInfoList ->
-                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-            }
-            qiita_client_title_view.adapter?.notifyDataSetChanged()
-        })
+//        qiitaClientViewModel.androidArticleList.observe(this, Observer {
+//            it?.let { qiitaInfoList ->
+//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+//            }
+//            qiita_client_title_view.adapter?.notifyDataSetChanged()
+//        })
+//        qiitaClientViewModel.firebaseArticleList.observe(this, Observer {
+//            it?.let { qiitaInfoList ->
+//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+//            }
+//            qiita_client_title_view.adapter?.notifyDataSetChanged()
+//        })
+//        qiitaClientViewModel.flutterArticleList.observe(this, Observer {
+//            it?.let { qiitaInfoList ->
+//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+//            }
+//            qiita_client_title_view.adapter?.notifyDataSetChanged()
+//        })
+
+        arrayArticleList.forEach {
+            it.observe(this, Observer {
+                it.let { qiitaInfoList ->
+                    qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+                }
+                qiita_client_title_view.adapter?.notifyDataSetChanged()
+            })
+        }
 
         swipe_to_refresh_qiita_client.setOnRefreshListener{
             swipe_to_refresh_qiita_client.isRefreshing = false

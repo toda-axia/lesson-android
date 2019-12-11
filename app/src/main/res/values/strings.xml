@@ -40,8 +40,9 @@
     <!-- Retrofit -->
     <string name="retrofit_get_article">記事取得</string>
     <string name="failed_to_get_article">記事情報の取得に失敗しました</string>
+
+    <!-- QiitaClient -->
     <string name="android">Android</string>
     <string name="firebase">Firebase</string>
     <string name="flutter">Flutter</string>
-
 </resources>

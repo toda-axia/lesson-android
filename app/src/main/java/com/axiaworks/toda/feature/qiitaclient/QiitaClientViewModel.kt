@@ -20,6 +20,10 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     val qiitaTouchItem: MutableLiveData<Int> = MutableLiveData(-1)
     val qiitaId: MutableLiveData<String> = MutableLiveData("")
 
+    companion object {
+        const val TAG = "QiitaViewModel"
+    }
+
     override fun onCleared() {
         super.onCleared()
 
@@ -44,12 +48,9 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
                         if (tag == "Flutter") {
                             flutterArticleList.value = titleList
                         }
-                        titleList.forEach {
-                            Log.d("ViewModel", it.title)
-                        }
                     }
                 }, { t ->
-                    Log.w("QiitaViewModel", t)
+                    Log.w(TAG, t)
                     qiitaApiProgressCount.value = qiitaApiProgressCount.value!! - 1
                 }
             ).also {
@@ -72,6 +73,4 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     fun tapItems(id: String) {
         qiitaId.value = id
     }
-
-
 }

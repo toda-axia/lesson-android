@@ -10,11 +10,9 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.squareup.moshi.Moshi
-import io.reactivex.plugins.RxJavaPlugins
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.android.startKoin
-import org.koin.android.viewmodel.experimental.builder.viewModel
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
@@ -23,6 +21,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class LessonApplication : Application() {
+    companion object {
+        const val BASE_URL = "https://qiita.com"
+    }
+
     override fun onCreate() {
         super.onCreate()
         initFlipper()
@@ -58,15 +60,15 @@ class LessonApplication : Application() {
                 QiitaClientViewModel()
             }
             single {
-                createRetrofitService("https://qiita.com", QiitaService::class.java)
+                createRetrofitService(BASE_URL, QiitaService::class.java)
             }
         }
         startKoin(this, listOf(module))
     }
 
-    private fun <T> createRetrofitService(baseUrl: String, service: Class<T>): T =
+    private fun <T> createRetrofitService(url: String, service: Class<T>): T =
         Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(url)
             .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().build()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(
