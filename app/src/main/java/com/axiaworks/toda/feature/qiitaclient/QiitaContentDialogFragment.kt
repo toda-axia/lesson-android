@@ -5,14 +5,19 @@ import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.FragmentQiitaContentDialogBinding
 import com.axiaworks.toda.feature.retrofit.QiitaService
+import io.noties.markwon.Markwon
+import io.noties.markwon.SpannableBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_qiita_content_dialog.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -51,6 +56,8 @@ class QiitaContentDialogFragment: DialogFragment() {
                 {
                     it.let { qiitaInfo ->
                         binding.qiitacontent = qiitaInfo
+                        val markwon = Markwon.create(requireContext())
+                        binding.qiitacontent.body = markwon.toMarkdown(binding.qiitacontent.body)?.toString()
                     }
                 }, { t ->
                 }
