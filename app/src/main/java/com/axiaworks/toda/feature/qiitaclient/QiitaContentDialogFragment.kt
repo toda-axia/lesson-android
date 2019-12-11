@@ -12,7 +12,6 @@ import com.axiaworks.toda.databinding.FragmentQiitaContentDialogBinding
 import com.axiaworks.toda.feature.retrofit.QiitaService
 import com.bumptech.glide.Glide
 import io.noties.markwon.Markwon
-import io.noties.markwon.ext.tables.TablePlugin
 import io.noties.markwon.image.glide.GlideImagesPlugin
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -27,7 +26,7 @@ class QiitaContentDialogFragment: DialogFragment() {
     private lateinit var binding: FragmentQiitaContentDialogBinding
 
     companion object {
-        const val TAG = "QiitaContentDialog"
+        private const val TAG = "QiitaContentDialog"
     }
 
     override fun onResume() {
@@ -56,7 +55,7 @@ class QiitaContentDialogFragment: DialogFragment() {
                     it.let { qiitaInfo ->
                         binding.qiitaTitleText.text = qiitaInfo.title
                         Markwon.builder(requireContext())
-                            .usePlugin(TablePlugin.create(requireContext()))
+                            .usePlugin(io.noties.markwon.ext.tables.TablePlugin.create(requireContext()))
                             .usePlugin(GlideImagesPlugin.create(Glide.with(requireContext())))
                             .build()
                             .setMarkdown(binding.qiitaContentText, qiitaInfo.body)

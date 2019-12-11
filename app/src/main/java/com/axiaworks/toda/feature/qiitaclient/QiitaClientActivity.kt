@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.axiaworks.toda.R
-import com.axiaworks.toda.feature.viewpager.SliderPage1Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_qiita_client.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -65,7 +64,7 @@ class QiitaPageAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
             0 -> ArticleFragment.newInstance("Android")
             1 -> ArticleFragment.newInstance("Firebase")
             2 -> ArticleFragment.newInstance("Flutter")
-            else -> SliderPage1Fragment()
+            else -> ArticleFragment.newInstance("Android")
         }
     }
 }

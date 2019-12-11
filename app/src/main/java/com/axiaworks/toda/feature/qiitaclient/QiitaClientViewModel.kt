@@ -21,7 +21,7 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     val qiitaId: MutableLiveData<String> = MutableLiveData("")
 
     companion object {
-        const val TAG = "QiitaViewModel"
+        private const val TAG = "QiitaViewModel"
     }
 
     override fun onCleared() {

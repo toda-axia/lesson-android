@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class QiitaClient {
 
     companion object {
-        private const val BASE_URL = "https://qiita.com"
+        const val BASE_URL = "https://qiita.com"
         private lateinit var retrofit: Retrofit
     }
 

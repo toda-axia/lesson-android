@@ -42,28 +42,9 @@ class ArticleFragment: Fragment() {
             qiitaClientViewModel.flutterArticleList
         )
 
-//        qiitaClientViewModel.androidArticleList.observe(this, Observer {
-//            it?.let { qiitaInfoList ->
-//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-//            }
-//            qiita_client_title_view.adapter?.notifyDataSetChanged()
-//        })
-//        qiitaClientViewModel.firebaseArticleList.observe(this, Observer {
-//            it?.let { qiitaInfoList ->
-//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-//            }
-//            qiita_client_title_view.adapter?.notifyDataSetChanged()
-//        })
-//        qiitaClientViewModel.flutterArticleList.observe(this, Observer {
-//            it?.let { qiitaInfoList ->
-//                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-//            }
-//            qiita_client_title_view.adapter?.notifyDataSetChanged()
-//        })
-
         arrayArticleList.forEach {
-            it.observe(this, Observer {
-                it.let { qiitaInfoList ->
+            it.observe(this, Observer { qiitaInfo ->
+                qiitaInfo?.let { qiitaInfoList ->
                     qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 }
                 qiita_client_title_view.adapter?.notifyDataSetChanged()
