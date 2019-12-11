@@ -7,8 +7,8 @@ import com.axiaworks.toda.feature.retrofit.QiitaService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.inject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 class QiitaClientViewModel: ViewModel(), KoinComponent {
     private val qiitaService: QiitaService by inject()
