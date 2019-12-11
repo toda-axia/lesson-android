@@ -29,7 +29,7 @@ class ArticleFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (arguments != null) {
-            tagText = arguments?.getString("QIITA_TAG")!!
+            tagText = getQiitaTag()
         }
         return inflater.inflate(R.layout.fragment_article, container, false)
     }
@@ -58,17 +58,17 @@ class ArticleFragment: Fragment() {
 
         swipe_to_refresh_qiita_client.setOnRefreshListener{
             swipe_to_refresh_qiita_client.isRefreshing = false
-            displayContentByTag(tagText)
+            switchArticleByTag(tagText)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        displayContentByTag(tagText)
+        switchArticleByTag(tagText)
     }
 
-    fun displayContentByTag(tag: String) {
-        when (tagText) {
+    private fun switchArticleByTag(tag: String) {
+        when (tag) {
             "Android" -> {
                 qiitaClientViewModel.getAndroidArticle()
             }
@@ -80,4 +80,6 @@ class ArticleFragment: Fragment() {
             }
         }
     }
+
+    private fun getQiitaTag() = arguments!!.getString("QIITA_TAG")!!
 }
