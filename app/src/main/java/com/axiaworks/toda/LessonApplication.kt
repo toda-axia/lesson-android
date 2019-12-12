@@ -62,7 +62,7 @@ class LessonApplication : Application() {
                 QiitaClientViewModel()
             }
             single {
-                createRetrofitService(BASE_URL, QiitaService::class.java)
+                createRetrofitService(QiitaService::class.java)
             }
         }
 //        startKoin(this, listOf(module))
@@ -73,9 +73,9 @@ class LessonApplication : Application() {
         }
     }
 
-    private fun <T> createRetrofitService(url: String, service: Class<T>): T =
+    private fun <T> createRetrofitService(service: Class<T>): T =
         Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().build()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(
