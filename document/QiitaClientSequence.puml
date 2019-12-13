@@ -1,0 +1,18 @@
+@startuml
+QiitaClientActivity -> QiitaPageAdapter
+QiitaPageAdapter -> ArticleFragment:newInstance(tag)
+ArticleFragment -> ArticleFragment:tagの値を取得
+ArticleFragment -> ViewModel:getAndroidArticle()
+ViewModel --> ArticleFragment:Androidの記事情報
+ArticleFragment -> ViewModel:getFirebaseArticle()
+ViewModel --> ArticleFragment:Firebaseの記事情報
+ArticleFragment -> ViewModel:getFlutterArticle()
+ViewModel --> ArticleFragment:Flutterの記事情報
+ArticleFragment -> User:記事タイトル一覧を表示
+User --> ViewModel: タップをする
+ViewModel --> QiitaClientActivity:LiveDataで記事IDが変化したことを通知
+QiitaClientActivity -> QiitaContentDialogFragment
+QiitaContentDialogFragment -> QiitaContentDialogFragment:onCreateDialog()
+QiitaContentDialogFragment -> QiitaContentDialogFragment:onResume():APIを叩く
+QiitaContentDialogFragment -> User:記事詳細を表示
+@enduml
