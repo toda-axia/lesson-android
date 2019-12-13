@@ -16,11 +16,12 @@ class ArticleFragment: Fragment() {
 
     companion object{
         fun newInstance(tag: String): ArticleFragment {
-            val fragment = ArticleFragment()
-            val bundle = Bundle()
-            bundle.putString("QIITA_TAG", tag)
-            fragment.arguments = bundle
-            return fragment
+            val bundle = Bundle().apply {
+                putSerializable("QIITA_TAG", tag)
+            }
+            return ArticleFragment().apply {
+                arguments = bundle
+            }
         }
     }
 
@@ -28,7 +29,7 @@ class ArticleFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (arguments != null) {
+        arguments?.let {
             tagText = getQiitaTag()
         }
         return inflater.inflate(R.layout.fragment_article, container, false)
