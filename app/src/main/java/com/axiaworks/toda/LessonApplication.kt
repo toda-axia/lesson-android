@@ -65,7 +65,6 @@ class LessonApplication : Application() {
                 createRetrofitService(QiitaService::class.java)
             }
         }
-//        startKoin(this, listOf(module))
         startKoin {
             androidContext(this@LessonApplication)
             androidLogger()
