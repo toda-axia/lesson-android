@@ -42,19 +42,31 @@ class ArticleFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val arrayArticleList = arrayListOf(
-            qiitaClientViewModel.androidArticleList,
-            qiitaClientViewModel.firebaseArticleList,
-            qiitaClientViewModel.flutterArticleList
-        )
-
-        arrayArticleList.forEach {
-            it.observe(this, Observer { qiitaInfo ->
-                qiitaInfo?.let { qiitaInfoList ->
-                    qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                }
-                qiita_client_title_view.adapter?.notifyDataSetChanged()
-            })
+        when (tagText) {
+            ANDROID_TAG -> {
+                qiitaClientViewModel.androidArticleList.observe(this, Observer { qiitaInfo ->
+                    qiitaInfo?.let { qiitaInfoList ->
+                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+                    }
+                    qiita_client_title_view.adapter?.notifyDataSetChanged()
+                })
+            }
+            FIREBASE_TAG -> {
+                qiitaClientViewModel.firebaseArticleList.observe(this, Observer { qiitaInfo ->
+                    qiitaInfo?.let { qiitaInfoList ->
+                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+                    }
+                    qiita_client_title_view.adapter?.notifyDataSetChanged()
+                })
+            }
+            FLUTTER_TAG -> {
+                qiitaClientViewModel.flutterArticleList.observe(this, Observer { qiitaInfo ->
+                    qiitaInfo?.let { qiitaInfoList ->
+                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+                    }
+                    qiita_client_title_view.adapter?.notifyDataSetChanged()
+                })
+            }
         }
 
         swipe_to_refresh_qiita_client.setOnRefreshListener{

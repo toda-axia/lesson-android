@@ -39,7 +39,8 @@ class QiitaContentDialogFragment: DialogFragment() {
             LayoutInflater.from(context),
             R.layout.fragment_qiita_content_dialog,
             null,
-            false)
+            false
+        )
         val view = binding.root
         builder.setView(view)
         return builder.create()
