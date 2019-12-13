@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.databinding.ListItemQiitaInfoBinding
 
-class QiitaClientAdapter(private val context: Context,
-                       private val qiitaInfoList: List<QiitaInfo>,
-                         private val viewModel: QiitaClientViewModel) : RecyclerView.Adapter<QiitaClientAdapter.QiitaInfoViewHolder>() {
+class QiitaClientAdapter(
+    private val context: Context,
+    private val qiitaInfoList: List<QiitaInfo>,
+    private val viewModel: QiitaClientViewModel
+) : RecyclerView.Adapter<QiitaClientAdapter.QiitaInfoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QiitaInfoViewHolder {
         val layoutInflater = LayoutInflater.from(context)

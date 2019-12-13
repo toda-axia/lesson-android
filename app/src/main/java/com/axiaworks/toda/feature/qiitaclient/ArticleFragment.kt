@@ -10,14 +10,19 @@ import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_article.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
+const val ANDROID_TAG = "Android"
+const val FIREBASE_TAG = "Firebase"
+const val FLUTTER_TAG = "Flutter"
+
 class ArticleFragment: Fragment() {
     private val qiitaClientViewModel: QiitaClientViewModel by sharedViewModel()
     private var tagText = ""
 
     companion object{
+        const val QIITA_TAG = "QiitaItemTag"
         fun newInstance(tag: String): ArticleFragment {
             val bundle = Bundle().apply {
-                putSerializable("QIITA_TAG", tag)
+                putSerializable(QIITA_TAG, tag)
             }
             return ArticleFragment().apply {
                 arguments = bundle
@@ -65,17 +70,17 @@ class ArticleFragment: Fragment() {
 
     private fun switchArticleByTag(tag: String) {
         when (tag) {
-            "Android" -> {
+            ANDROID_TAG -> {
                 qiitaClientViewModel.getAndroidArticle()
             }
-            "Firebase" -> {
+            FIREBASE_TAG -> {
                 qiitaClientViewModel.getFirebaseArticle()
             }
-            "Flutter" -> {
+            FLUTTER_TAG -> {
                 qiitaClientViewModel.getFlutterArticle()
             }
         }
     }
 
-    private fun getQiitaTag() = arguments!!.getString("QIITA_TAG")!!
+    private fun getQiitaTag() = arguments!!.getString(QIITA_TAG)!!
 }

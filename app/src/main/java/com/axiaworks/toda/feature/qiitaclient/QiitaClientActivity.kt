@@ -46,7 +46,7 @@ class QiitaClientActivity: AppCompatActivity() {
 
         qiita_pager.adapter = QiitaPageAdapter(this)
         TabLayoutMediator(qiita_tabs, qiita_pager) { tab, position ->
-            val tabArray = arrayListOf("Android", "Firebase", "Flutter")
+            val tabArray = arrayListOf(ANDROID_TAG, FIREBASE_TAG, FLUTTER_TAG)
             tab.text = tabArray[position]
         }.attach()
     }
@@ -61,10 +61,10 @@ class QiitaPageAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> ArticleFragment.newInstance("Android")
-            1 -> ArticleFragment.newInstance("Firebase")
-            2 -> ArticleFragment.newInstance("Flutter")
-            else -> ArticleFragment.newInstance("Android")
+            0 -> ArticleFragment.newInstance(ANDROID_TAG)
+            1 -> ArticleFragment.newInstance(FIREBASE_TAG)
+            2 -> ArticleFragment.newInstance(FLUTTER_TAG)
+            else -> ArticleFragment.newInstance(ANDROID_TAG)
         }
     }
 }

@@ -59,15 +59,15 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     }
 
     fun getAndroidArticle() {
-        getQiitaArticle("Android")
+        getQiitaArticle(ANDROID_TAG)
     }
 
     fun getFirebaseArticle() {
-        getQiitaArticle("Firebase")
+        getQiitaArticle(FIREBASE_TAG)
     }
 
     fun getFlutterArticle() {
-        getQiitaArticle("Flutter")
+        getQiitaArticle(FLUTTER_TAG)
     }
 
     fun tapItems(id: String) {
