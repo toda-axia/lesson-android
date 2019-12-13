@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import com.axiaworks.toda.R
 import com.axiaworks.toda.databinding.FragmentQiitaContentDialogBinding
-import com.axiaworks.toda.feature.retrofit.QiitaService
 import com.bumptech.glide.Glide
 import io.noties.markwon.Markwon
 import io.noties.markwon.image.glide.GlideImagesPlugin
@@ -22,7 +21,7 @@ import org.koin.android.viewmodel.ext.android.sharedViewModel
 class QiitaContentDialogFragment: DialogFragment() {
     private val qiitaClientViewModel: QiitaClientViewModel by sharedViewModel()
     private val disposables = CompositeDisposable()
-    private val qiitaService: QiitaService by inject()
+    private val qiitaService: QiitaClientService by inject()
     private lateinit var binding: FragmentQiitaContentDialogBinding
 
     companion object {
