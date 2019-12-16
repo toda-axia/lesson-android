@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_article.*
@@ -45,7 +44,7 @@ class ArticleFragment: Fragment() {
             FIREBASE_TAG -> qiitaClientViewModel.firebaseArticleList
             FLUTTER_TAG -> qiitaClientViewModel.flutterArticleList
             else -> qiitaClientViewModel.androidArticleList
-        }?.observe(this, Observer { articleList ->
+        }.observe(this, Observer { articleList ->
             articleList?.let { qiitaInfoList ->
                 qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 qiita_client_title_view.adapter?.notifyDataSetChanged()
