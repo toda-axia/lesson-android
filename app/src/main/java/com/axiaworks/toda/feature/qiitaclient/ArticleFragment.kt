@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.fragment_article.*
@@ -20,12 +21,9 @@ class ArticleFragment: Fragment() {
 
     companion object{
         const val QIITA_TAG = "QiitaItemTag"
-        fun newInstance(tag: String): ArticleFragment {
-            val bundle = Bundle().apply {
-                putSerializable(QIITA_TAG, tag)
-            }
-            return ArticleFragment().apply {
-                arguments = bundle
+        fun newInstance(tag: String) = ArticleFragment().apply {
+            arguments = Bundle().apply {
+                putString(QIITA_TAG, tag)
             }
         }
     }
@@ -42,37 +40,19 @@ class ArticleFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        when (tagText) {
-            ANDROID_TAG -> {
-                qiitaClientViewModel.androidArticleList.observe(this, Observer { qiitaInfo ->
-                    qiitaInfo?.let { qiitaInfoList ->
-                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                    }
-                    qiita_client_title_view.adapter?.notifyDataSetChanged()
-                })
-            }
-            FIREBASE_TAG -> {
-                qiitaClientViewModel.firebaseArticleList.observe(this, Observer { qiitaInfo ->
-                    qiitaInfo?.let { qiitaInfoList ->
-                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                    }
-                    qiita_client_title_view.adapter?.notifyDataSetChanged()
-                })
-            }
-            FLUTTER_TAG -> {
-                qiitaClientViewModel.flutterArticleList.observe(this, Observer { qiitaInfo ->
-                    qiitaInfo?.let { qiitaInfoList ->
-                        qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
-                    }
-                    qiita_client_title_view.adapter?.notifyDataSetChanged()
-                })
-            }
+        val articleList : MutableLiveData<List<QiitaInfo>> = when(tagText) {
+            ANDROID_TAG -> qiitaClientViewModel.androidArticleList
+            FIREBASE_TAG -> qiitaClientViewModel.firebaseArticleList
+            FLUTTER_TAG -> qiitaClientViewModel.flutterArticleList
+            else -> qiitaClientViewModel.androidArticleList
         }
 
-        swipe_to_refresh_qiita_client.setOnRefreshListener{
-            swipe_to_refresh_qiita_client.isRefreshing = false
-            switchArticleByTag(tagText)
-        }
+        articleList.observe(this, Observer { articleList ->
+            articleList?.let { qiitaInfoList ->
+                qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
+                qiita_client_title_view.adapter?.notifyDataSetChanged()
+            }
+        })
     }
 
     override fun onResume() {
@@ -82,15 +62,9 @@ class ArticleFragment: Fragment() {
 
     private fun switchArticleByTag(tag: String) {
         when (tag) {
-            ANDROID_TAG -> {
-                qiitaClientViewModel.getAndroidArticle()
-            }
-            FIREBASE_TAG -> {
-                qiitaClientViewModel.getFirebaseArticle()
-            }
-            FLUTTER_TAG -> {
-                qiitaClientViewModel.getFlutterArticle()
-            }
+            ANDROID_TAG -> qiitaClientViewModel.getAndroidArticle()
+            FIREBASE_TAG -> qiitaClientViewModel.getFirebaseArticle()
+            FLUTTER_TAG -> qiitaClientViewModel.getFlutterArticle()
         }
     }
 
