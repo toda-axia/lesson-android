@@ -40,19 +40,22 @@ class ArticleFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val articleList : MutableLiveData<List<QiitaInfo>> = when(tagText) {
+        when(tagText) {
             ANDROID_TAG -> qiitaClientViewModel.androidArticleList
             FIREBASE_TAG -> qiitaClientViewModel.firebaseArticleList
             FLUTTER_TAG -> qiitaClientViewModel.flutterArticleList
             else -> qiitaClientViewModel.androidArticleList
-        }
-
-        articleList.observe(this, Observer { articleList ->
+        }?.observe(this, Observer { articleList ->
             articleList?.let { qiitaInfoList ->
                 qiita_client_title_view.adapter = QiitaClientAdapter(requireContext(), qiitaInfoList, qiitaClientViewModel)
                 qiita_client_title_view.adapter?.notifyDataSetChanged()
             }
         })
+
+        swipe_to_refresh_qiita_client.setOnRefreshListener{
+            swipe_to_refresh_qiita_client.isRefreshing = false
+            switchArticleByTag(tagText)
+        }
     }
 
     override fun onResume() {
