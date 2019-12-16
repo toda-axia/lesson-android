@@ -16,7 +16,6 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
     val firebaseArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val flutterArticleList: MutableLiveData<List<QiitaInfo>> = MutableLiveData(listOf())
     val qiitaApiProgressCount: MutableLiveData<Int> = MutableLiveData(0)
-    val qiitaTouchItem: MutableLiveData<Int> = MutableLiveData(-1)
     val qiitaId: MutableLiveData<String> = MutableLiveData("")
 
     companion object {
@@ -38,13 +37,13 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
                 { list ->
                     qiitaApiProgressCount.value = qiitaApiProgressCount.value!! - 1
                     list?.let {titleList ->
-                        if (tag == "Android") {
+                        if (tag == ANDROID_TAG) {
                             androidArticleList.value = titleList
                         }
-                        if (tag == "Firebase") {
+                        if (tag == FIREBASE_TAG) {
                             firebaseArticleList.value = titleList
                         }
-                        if (tag == "Flutter") {
+                        if (tag == FLUTTER_TAG) {
                             flutterArticleList.value = titleList
                         }
                     }
