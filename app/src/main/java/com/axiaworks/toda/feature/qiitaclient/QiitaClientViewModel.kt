@@ -37,14 +37,10 @@ class QiitaClientViewModel: ViewModel(), KoinComponent {
                 { list ->
                     qiitaApiProgressCount.value = qiitaApiProgressCount.value!! - 1
                     list?.let {titleList ->
-                        if (tag == ANDROID_TAG) {
-                            androidArticleList.value = titleList
-                        }
-                        if (tag == FIREBASE_TAG) {
-                            firebaseArticleList.value = titleList
-                        }
-                        if (tag == FLUTTER_TAG) {
-                            flutterArticleList.value = titleList
+                        when(tag){
+                            ANDROID_TAG -> androidArticleList.value = titleList
+                            FIREBASE_TAG -> firebaseArticleList.value = titleList
+                            FLUTTER_TAG -> flutterArticleList.value = titleList
                         }
                     }
                 }, { t ->

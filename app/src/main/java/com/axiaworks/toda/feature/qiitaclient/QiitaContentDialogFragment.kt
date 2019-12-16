@@ -42,9 +42,7 @@ class QiitaContentDialogFragment: DialogFragment() {
             null,
             false
         )
-        val view = binding.root
-        builder.setView(view)
-        return builder.create()
+        return builder.setView(binding.root).create()
     }
 
     private fun getQiitaContent(itemId: String) {
