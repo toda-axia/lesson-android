@@ -8,4 +8,5 @@
     <color name="button_color3">#43A047</color>
     <color name="black">#000000</color>
     <color name="basic_text">@color/black</color>
+    <color name="gray_filter">#88000000</color>
 </resources>

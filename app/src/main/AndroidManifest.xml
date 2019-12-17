@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".feature.qiitaclient.QiitaClientActivity" />
         <activity android:name=".feature.dialog_fragment.DialogFragmentActivity" />
         <activity android:name=".feature.retrofit.RetrofitActivity" />
         <activity android:name=".feature.glide.GlideActivity" />
