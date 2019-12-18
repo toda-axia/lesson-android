@@ -6,4 +6,5 @@
     <color name="black">#000000</color>
     <color name="basic_text">@color/black</color>
     <color name="gray_filter">#88000000</color>
+    <color name="yellow_background">#FFAB00</color>
 </resources>
