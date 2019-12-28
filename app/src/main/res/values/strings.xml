@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">lesson-android</string>
 
-　　<!-- MainActivity -->
+    　　<!-- MainActivity -->
     <string name="main_menu_viewpager2">ViewPager2</string>
     <string name="main_menu_recyclerview">RecyclerView</string>
     <string name="main_menu_glide">Glide</string>
@@ -45,4 +45,5 @@
     <string name="android">Android</string>
     <string name="firebase">Firebase</string>
     <string name="flutter">Flutter</string>
+    <string name="main_menu_todo">ToDo</string>
 </resources>

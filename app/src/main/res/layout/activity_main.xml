@@ -84,4 +84,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialogfragment_button" />
 
+    <Button
+        android:id="@+id/todo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/main_menu_todo"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/qiita_client_button"
+        app:layout_constraintTop_toBottomOf="@+id/retrofit_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

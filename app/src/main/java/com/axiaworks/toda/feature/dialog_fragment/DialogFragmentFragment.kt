@@ -27,12 +27,12 @@ class DialogFragmentFragment : Fragment() {
 
         dialogfragment_button1.setOnClickListener {
             val dialogFragment1 = SimpleDialog()
-            dialogFragment1.show(requireFragmentManager(), SimpleDialog.TAG)
+            dialogFragment1.show(childFragmentManager, SimpleDialog.TAG)
         }
 
         dialogfragment_button2.setOnClickListener {
             val dialogFragment2 = LogDialog()
-            dialogFragment2.show(requireFragmentManager(), LogDialog.TAG)
+            dialogFragment2.show(childFragmentManager, LogDialog.TAG)
         }
     }
 

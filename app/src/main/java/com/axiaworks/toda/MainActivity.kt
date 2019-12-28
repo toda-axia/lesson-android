@@ -9,6 +9,7 @@ import com.axiaworks.toda.feature.qiitaclient.QiitaClientActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
 import com.axiaworks.toda.feature.retrofit.RetrofitActivity
+import com.axiaworks.toda.feature.todo_mvvm.TodoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         qiita_client_button.setOnClickListener {
             startActivity(QiitaClientActivity.callingIntent(this))
+        }
+
+        todo_button.setOnClickListener {
+            startActivity(TodoActivity.callingIntent(this))
         }
     }
 }
