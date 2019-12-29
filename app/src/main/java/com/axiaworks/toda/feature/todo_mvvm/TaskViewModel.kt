@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class ViewModel(application: Application) : AndroidViewModel(application) {
+class TaskViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: TaskRepository
     val allTasks: LiveData<List<Task>>

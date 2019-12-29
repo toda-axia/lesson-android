@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo.*
 
@@ -24,7 +23,6 @@ class TodoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
 
-        //val recyclerView = findViewById<RecyclerView>(R.id.task_recyclerview)
         val adapter = TasksListAdapter(this)
         task_recyclerview.adapter = adapter
         task_recyclerview.layoutManager = LinearLayoutManager(this)
@@ -39,6 +37,7 @@ class TodoActivity : AppCompatActivity() {
         }
     }
 
+    // https://developer.android.com/training/basics/intents/result?hl=ja
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
