@@ -1,4 +1,4 @@
-package com.axiaworks.toda.feature.todo_mvvm
+package com.axiaworks.toda.feature.todo
 
 import android.app.Activity
 import android.content.Context

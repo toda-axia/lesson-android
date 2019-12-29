@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.todo_mvvm.TodoNewActivity">
+    tools:context=".feature.todo.TodoNewActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/input_task_fab"
@@ -15,7 +15,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        app:srcCompat="@drawable/ic_check_black_24dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
@@ -31,6 +31,6 @@
             android:id="@+id/edit_task"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="追加するタスク名" />
+            android:hint="@string/input_task_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

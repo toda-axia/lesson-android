@@ -1,6 +1,5 @@
-package com.axiaworks.toda.feature.todo_mvvm
+package com.axiaworks.toda.feature.todo
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

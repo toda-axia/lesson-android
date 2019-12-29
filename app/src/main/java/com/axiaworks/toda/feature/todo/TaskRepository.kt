@@ -1,4 +1,4 @@
-package com.axiaworks.toda.feature.todo_mvvm
+package com.axiaworks.toda.feature.todo
 
 import androidx.lifecycle.LiveData
 

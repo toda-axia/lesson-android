@@ -47,4 +47,5 @@
     <string name="flutter">Flutter</string>
     <string name="main_menu_todo">ToDo</string>
     <string name="empty_not_saved">タスクが存在しないので、保存出来ませんでした。</string>
+    <string name="input_task_hint">追加するタスク名</string>
 </resources>

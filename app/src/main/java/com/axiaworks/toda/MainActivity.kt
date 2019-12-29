@@ -9,7 +9,7 @@ import com.axiaworks.toda.feature.qiitaclient.QiitaClientActivity
 import com.axiaworks.toda.feature.viewpager.ViewPager2Activity
 import com.axiaworks.toda.feature.recyclerview.RecyclerViewActivity
 import com.axiaworks.toda.feature.retrofit.RetrofitActivity
-import com.axiaworks.toda.feature.todo_mvvm.TodoActivity
+import com.axiaworks.toda.feature.todo.TodoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

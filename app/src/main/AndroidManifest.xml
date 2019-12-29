@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.todo_mvvm.TodoNewActivity"></activity>
-        <activity android:name=".feature.todo_mvvm.TodoActivity" />
+        <activity android:name=".feature.todo.TodoNewActivity"></activity>
+        <activity android:name=".feature.todo.TodoActivity" />
         <activity android:name=".feature.qiitaclient.QiitaClientActivity" />
         <activity android:name=".feature.dialog_fragment.DialogFragmentActivity" />
         <activity android:name=".feature.retrofit.RetrofitActivity" />
