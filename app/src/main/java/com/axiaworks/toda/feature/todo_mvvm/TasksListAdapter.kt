@@ -26,7 +26,7 @@ class TasksListAdapter internal constructor(
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = tasks[position]
-        holder.taskItemView.text = current.task
+        holder.taskItemView.text = current.name
     }
 
     internal fun setTasks(tasks: List<Task>) {

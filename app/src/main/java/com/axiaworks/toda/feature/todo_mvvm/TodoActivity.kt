@@ -43,7 +43,7 @@ class TodoActivity : AppCompatActivity() {
 
         if (requestCode == todoNewActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
-                val task = Task(it)
+                val task = Task(null, it, false)
                 taskViewModel.insert(task)
             }
         } else {

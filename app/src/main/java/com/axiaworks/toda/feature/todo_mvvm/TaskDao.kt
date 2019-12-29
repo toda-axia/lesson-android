@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Dao
 interface TaskDao {
-    @Query("SELECT * FROM task_table ORDER BY task DESC")
+    @Query("SELECT * FROM task_table ORDER BY id DESC")
     fun getAllTasks(): LiveData<List<Task>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
