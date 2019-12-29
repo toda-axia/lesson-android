@@ -15,10 +15,6 @@ class TasksListAdapter internal constructor(
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var tasks = emptyList<Task>()
 
-    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val taskItemView: TextView = itemView.findViewById(R.id.textView)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val itemView = inflater.inflate(R.layout.task_item, parent, false)
         return WordViewHolder(itemView)
@@ -35,4 +31,8 @@ class TasksListAdapter internal constructor(
     }
 
     override fun getItemCount() = tasks.size
+
+    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val taskItemView: TextView = itemView.findViewById(R.id.task_name_text)
+    }
 }
