@@ -3,6 +3,7 @@ package com.axiaworks.toda
 import android.app.Application
 import com.axiaworks.toda.feature.qiitaclient.QiitaClientService
 import com.axiaworks.toda.feature.qiitaclient.QiitaClientViewModel
+import com.axiaworks.toda.feature.todo.TaskViewModel
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
@@ -58,9 +59,8 @@ class LessonApplication : Application() {
 
     private fun setupKoin() {
         val module: Module = module{
-            viewModel{
-                QiitaClientViewModel()
-            }
+            viewModel { QiitaClientViewModel() }
+            viewModel { TaskViewModel(get()) }
             single {
                 createRetrofitService(QiitaClientService::class.java)
             }

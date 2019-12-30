@@ -11,13 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class TodoActivity : AppCompatActivity() {
     companion object {
         fun callingIntent(context: Context) = Intent(context, TodoActivity::class.java)
     }
     private val todoNewActivityRequestCode = 1
-    private lateinit var taskViewModel: TaskViewModel
+    private val taskViewModel: TaskViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,6 @@ class TodoActivity : AppCompatActivity() {
         task_recyclerview.adapter = adapter
         task_recyclerview.layoutManager = LinearLayoutManager(this)
 
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         taskViewModel.allTasks.observe(this, Observer { tasks ->
             tasks?.let { adapter.setTasks(it) }
         })
