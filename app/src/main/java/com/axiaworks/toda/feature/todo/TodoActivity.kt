@@ -24,13 +24,10 @@ class TodoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
 
-        val adapter = TasksListAdapter(this)
-        task_recyclerview.adapter = adapter
-        task_recyclerview.layoutManager = LinearLayoutManager(this)
-
-        taskViewModel.allTasks.observe(this, Observer { tasks ->
-            tasks?.let { adapter.setTasks(it) }
+        taskViewModel.allTasks.observe(this, Observer {
+            task_recyclerview.adapter = TasksListAdapter(this, it)
         })
+        task_recyclerview.layoutManager = LinearLayoutManager(this)
 
         add_task_fab.setOnClickListener {
             startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)

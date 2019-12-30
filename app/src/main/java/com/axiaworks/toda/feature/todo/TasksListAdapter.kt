@@ -2,37 +2,28 @@ package com.axiaworks.toda.feature.todo
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.axiaworks.toda.R
+import com.axiaworks.toda.databinding.TaskItemBinding
 
-class TasksListAdapter internal constructor(
-    context: Context
-) : RecyclerView.Adapter<TasksListAdapter.WordViewHolder>() {
+class TasksListAdapter(
+    private val context: Context,
+    private val tasksList: List<Task>
+    ) : RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
 
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var tasks = emptyList<Task>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
+        val layoutInflater = LayoutInflater.from(context)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        val itemView = inflater.inflate(R.layout.task_item, parent, false)
-        return WordViewHolder(itemView)
+        val binding = TaskItemBinding.inflate(layoutInflater, parent, false)
+        return TaskViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        val current = tasks[position]
-        holder.taskItemView.text = current.name
+    override fun getItemCount() = tasksList.size
+
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+        val data = tasksList[position]
+        holder.binding.task = data
     }
 
-    internal fun setTasks(tasks: List<Task>) {
-        this.tasks = tasks
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount() = tasks.size
-
-    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val taskItemView: TextView = itemView.findViewById(R.id.task_name_text)
-    }
+    inner class TaskViewHolder(var binding: TaskItemBinding) : RecyclerView.ViewHolder(binding.root)
 }
