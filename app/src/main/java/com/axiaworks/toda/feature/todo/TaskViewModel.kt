@@ -21,4 +21,8 @@ class TaskViewModel(context: Context) : ViewModel() {
     fun insert(task: Task) = viewModelScope.launch {
         repository.insert(task)
     }
+
+    fun update(task: Task) = viewModelScope.launch {
+        repository.update(task)
+    }
 }

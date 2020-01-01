@@ -16,4 +16,7 @@ interface TaskDao {
 
     @Query("DELETE FROM task_table")
     suspend fun deleteAll()
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateTask(task: Task)
 }

@@ -26,8 +26,8 @@ class TodoNewActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(edit_task.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                taskViewModel.taskName.value = edit_task.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, taskViewModel.taskName.value)
+                val task = edit_task.text.toString()
+                replyIntent.putExtra(EXTRA_REPLY, task)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,7 @@ class TodoActivity : AppCompatActivity() {
         fun callingIntent(context: Context) = Intent(context, TodoActivity::class.java)
     }
     private val todoNewActivityRequestCode = 1
+    private val todoNewActivityRequestEditCode = 2
     private val taskViewModel: TaskViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +38,7 @@ class TodoActivity : AppCompatActivity() {
         taskViewModel.editMode.observe(this, Observer {
             it?.let {
                 if (it) {
-                    startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)
+                    startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestEditCode)
                 }
             }
         })
@@ -50,6 +52,12 @@ class TodoActivity : AppCompatActivity() {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
                 val task = Task(null, it, false)
                 taskViewModel.insert(task)
+            }
+        } else if (requestCode == todoNewActivityRequestEditCode && resultCode == Activity.RESULT_OK) {
+            data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
+                val task = Task(110, it, false)
+                taskViewModel.insert(task)
+                Log.d("TaskUpdate", "タスクアップデート")
             }
         } else {
             Toast.makeText(
