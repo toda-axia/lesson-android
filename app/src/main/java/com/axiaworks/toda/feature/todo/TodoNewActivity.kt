@@ -8,12 +8,14 @@ import android.os.Bundle
 import android.text.TextUtils
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo_new.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class TodoNewActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_REPLY = "com.axiaworks.toda.feature.todo_mvvm.REPLY"
         fun callingIntent(context: Context) = Intent(context, TodoNewActivity::class.java)
     }
+    private val taskViewModel: TaskViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +26,8 @@ class TodoNewActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(edit_task.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val task = edit_task.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, task)
+                taskViewModel.taskName.value = edit_task.text.toString()
+                replyIntent.putExtra(EXTRA_REPLY, taskViewModel.taskName.value)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()

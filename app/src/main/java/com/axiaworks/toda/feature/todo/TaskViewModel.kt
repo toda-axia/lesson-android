@@ -2,16 +2,15 @@ package com.axiaworks.toda.feature.todo
 
 import android.app.Application
 import android.content.Context
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 
 class TaskViewModel(context: Context) : ViewModel() {
 
     private val repository: TaskRepository
     val allTasks: LiveData<List<Task>>
+    val editMode: MutableLiveData<Boolean> = MutableLiveData(false)
+    val taskName: MutableLiveData<String> = MutableLiveData("")
 
     init {
         val tasksDao = TaskDatabase.getDatabase(context, viewModelScope).taskDao()

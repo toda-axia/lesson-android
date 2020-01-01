@@ -25,13 +25,21 @@ class TodoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_todo)
 
         taskViewModel.allTasks.observe(this, Observer {
-            task_recyclerview.adapter = TasksListAdapter(this, it)
+            task_recyclerview.adapter = TasksListAdapter(this, it, taskViewModel)
         })
         task_recyclerview.layoutManager = LinearLayoutManager(this)
 
         add_task_fab.setOnClickListener {
             startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)
         }
+
+        taskViewModel.editMode.observe(this, Observer {
+            it?.let {
+                if (it) {
+                    startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)
+                }
+            }
+        })
     }
 
     // https://developer.android.com/training/basics/intents/result?hl=ja
