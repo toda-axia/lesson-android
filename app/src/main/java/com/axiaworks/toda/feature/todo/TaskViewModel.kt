@@ -9,7 +9,7 @@ class TaskViewModel(context: Context) : ViewModel() {
 
     private val repository: TaskRepository
     val allTasks: LiveData<List<Task>>
-    val editMode: MutableLiveData<Boolean> = MutableLiveData(false)
+    val editId: MutableLiveData<Int> = MutableLiveData(0)
     val taskName: MutableLiveData<String> = MutableLiveData("")
 
     init {

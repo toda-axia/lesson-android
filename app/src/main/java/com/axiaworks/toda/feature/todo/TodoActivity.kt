@@ -35,9 +35,9 @@ class TodoActivity : AppCompatActivity() {
             startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)
         }
 
-        taskViewModel.editMode.observe(this, Observer {
+        taskViewModel.editId.observe(this, Observer {
             it?.let {
-                if (it) {
+                if (it != 0) {
                     startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestEditCode)
                 }
             }
@@ -55,9 +55,8 @@ class TodoActivity : AppCompatActivity() {
             }
         } else if (requestCode == todoNewActivityRequestEditCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
-                val task = Task(110, it, false)
+                val task = Task(taskViewModel.editId.value, it, false)
                 taskViewModel.insert(task)
-                Log.d("TaskUpdate", "タスクアップデート")
             }
         } else {
             Toast.makeText(
