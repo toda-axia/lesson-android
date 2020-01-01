@@ -27,6 +27,7 @@ class TasksListAdapter(
         val data = tasksList[position]
         holder.binding.task = data
         holder.itemView.setOnClickListener {
+            viewModel.taskName.value = data.name
             viewModel.editId.value = data.id
         }
     }

@@ -32,13 +32,13 @@ class TodoActivity : AppCompatActivity() {
         task_recyclerview.layoutManager = LinearLayoutManager(this)
 
         add_task_fab.setOnClickListener {
-            startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestCode)
+            startActivityForResult(TodoNewActivity.callingIntent(this, ""), todoNewActivityRequestCode)
         }
 
         taskViewModel.editId.observe(this, Observer {
             it?.let {
                 if (it != 0) {
-                    startActivityForResult(TodoNewActivity.callingIntent(this), todoNewActivityRequestEditCode)
+                    startActivityForResult(TodoNewActivity.callingIntent(this, taskViewModel.taskName.value), todoNewActivityRequestEditCode)
                 }
             }
         })

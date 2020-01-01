@@ -6,20 +6,28 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.TextView
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo_new.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class TodoNewActivity : AppCompatActivity() {
     companion object {
+        const val INTENT_EXTRA_TODO_TASK_NAME = "com.axiaworks.toda.INTENT_TODO_TASK_NAME"
         const val EXTRA_REPLY = "com.axiaworks.toda.feature.todo_mvvm.REPLY"
-        fun callingIntent(context: Context) = Intent(context, TodoNewActivity::class.java)
+        fun callingIntent(context: Context, name: String?): Intent {
+            val intent = Intent(context, TodoNewActivity::class.java)
+            intent.putExtra(INTENT_EXTRA_TODO_TASK_NAME, name)
+            return intent
+        }
     }
-    private val taskViewModel: TaskViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo_new)
+
+        val taskName = intent.getStringExtra(INTENT_EXTRA_TODO_TASK_NAME)
+        edit_task.setText(taskName, TextView.BufferType.NORMAL)
 
         input_task_fab.setOnClickListener {
             val replyIntent = Intent()
