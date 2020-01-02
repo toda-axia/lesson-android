@@ -3,8 +3,6 @@ package com.axiaworks.toda.feature.todo
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.axiaworks.toda.databinding.TaskItemBinding
 

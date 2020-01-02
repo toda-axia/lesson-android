@@ -49,13 +49,20 @@ class TodoActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == todoNewActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
-                val task = Task(null, it, false)
-                taskViewModel.insert(task)
+            data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let { taskName ->
+                Log.d("TaskLog", data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_DATE).toString())
+                data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_DATE)?.let { taskDate ->
+                    Log.d("Task Log:", taskName)
+                    val task = Task(null, taskName, taskDate,false)
+                    taskViewModel.insert(task)
+                }
+//                Log.d("Task Log:", taskName)
+//                val task = Task(null, taskName, "",false)
+//                taskViewModel.insert(task)
             }
         } else if (requestCode == todoNewActivityRequestEditCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(TodoNewActivity.EXTRA_REPLY)?.let {
-                val task = Task(taskViewModel.editId.value, it, false)
+            data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let {
+                val task = Task(taskViewModel.editId.value, it, "",false)
                 taskViewModel.insert(task)
             }
         } else {

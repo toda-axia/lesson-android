@@ -9,12 +9,12 @@ import android.text.TextUtils
 import android.widget.TextView
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo_new.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class TodoNewActivity : AppCompatActivity() {
     companion object {
         const val INTENT_EXTRA_TODO_TASK_NAME = "com.axiaworks.toda.INTENT_TODO_TASK_NAME"
-        const val EXTRA_REPLY = "com.axiaworks.toda.feature.todo_mvvm.REPLY"
+        const val EXTRA_REPLY_NAME = "com.axiaworks.toda.feature.todo.REPLY"
+        const val EXTRA_REPLY_DATE = "com.axiaworks.toda.feature.todo.REPLY_DATE"
         fun callingIntent(context: Context, name: String?): Intent {
             val intent = Intent(context, TodoNewActivity::class.java)
             intent.putExtra(INTENT_EXTRA_TODO_TASK_NAME, name)
@@ -35,7 +35,9 @@ class TodoNewActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val task = edit_task.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, task)
+                val deadline = edit_task_deadline.text.toString()
+                replyIntent.putExtra(EXTRA_REPLY_NAME, task)
+                replyIntent.putExtra(EXTRA_REPLY_DATE, deadline)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
