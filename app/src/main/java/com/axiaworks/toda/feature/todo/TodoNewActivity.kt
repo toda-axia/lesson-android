@@ -13,11 +13,13 @@ import kotlinx.android.synthetic.main.activity_todo_new.*
 class TodoNewActivity : AppCompatActivity() {
     companion object {
         const val INTENT_EXTRA_TODO_TASK_NAME = "com.axiaworks.toda.INTENT_TODO_TASK_NAME"
+        const val INTENT_EXTRA_TODO_TASK_DATE = "com.axiaworks.toda.INTENT_TODO_TASK_DATE"
         const val EXTRA_REPLY_NAME = "com.axiaworks.toda.feature.todo.REPLY"
         const val EXTRA_REPLY_DATE = "com.axiaworks.toda.feature.todo.REPLY_DATE"
-        fun callingIntent(context: Context, name: String?): Intent {
+        fun callingIntent(context: Context, name: String?, deadline: String?): Intent {
             val intent = Intent(context, TodoNewActivity::class.java)
             intent.putExtra(INTENT_EXTRA_TODO_TASK_NAME, name)
+            intent.putExtra(INTENT_EXTRA_TODO_TASK_DATE, deadline)
             return intent
         }
     }
@@ -28,6 +30,8 @@ class TodoNewActivity : AppCompatActivity() {
 
         val taskName = intent.getStringExtra(INTENT_EXTRA_TODO_TASK_NAME)
         edit_task.setText(taskName, TextView.BufferType.NORMAL)
+        val taskDeadline = intent.getStringExtra(INTENT_EXTRA_TODO_TASK_DATE)
+        edit_task_deadline.setText(taskDeadline, TextView.BufferType.NORMAL)
 
         input_task_fab.setOnClickListener {
             val replyIntent = Intent()

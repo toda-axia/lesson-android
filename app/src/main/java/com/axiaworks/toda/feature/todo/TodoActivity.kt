@@ -32,13 +32,17 @@ class TodoActivity : AppCompatActivity() {
         task_recyclerview.layoutManager = LinearLayoutManager(this)
 
         add_task_fab.setOnClickListener {
-            startActivityForResult(TodoNewActivity.callingIntent(this, ""), todoNewActivityRequestCode)
+            startActivityForResult(TodoNewActivity.callingIntent(this, "", ""), todoNewActivityRequestCode)
         }
 
         taskViewModel.editId.observe(this, Observer {
             it?.let {
                 if (it != 0) {
-                    startActivityForResult(TodoNewActivity.callingIntent(this, taskViewModel.taskName.value), todoNewActivityRequestEditCode)
+                    startActivityForResult(TodoNewActivity.callingIntent(
+                        this,
+                        taskViewModel.taskName.value,
+                        taskViewModel.taskDeadline.value),
+                        todoNewActivityRequestEditCode)
                 }
             }
         })
@@ -50,15 +54,10 @@ class TodoActivity : AppCompatActivity() {
 
         if (requestCode == todoNewActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let { taskName ->
-                Log.d("TaskLog", data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_DATE).toString())
                 data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_DATE)?.let { taskDate ->
-                    Log.d("Task Log:", taskName)
                     val task = Task(null, taskName, taskDate,false)
                     taskViewModel.insert(task)
                 }
-//                Log.d("Task Log:", taskName)
-//                val task = Task(null, taskName, "",false)
-//                taskViewModel.insert(task)
             }
         } else if (requestCode == todoNewActivityRequestEditCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let {

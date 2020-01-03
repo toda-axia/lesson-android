@@ -26,6 +26,7 @@ class TasksListAdapter(
         holder.binding.task = data
         holder.itemView.setOnClickListener {
             viewModel.taskName.value = data.name
+            viewModel.taskDeadline.value = data.deadline
             viewModel.editId.value = data.id
         }
     }

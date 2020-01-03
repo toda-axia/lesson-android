@@ -11,6 +11,7 @@ class TaskViewModel(context: Context) : ViewModel() {
     val allTasks: LiveData<List<Task>>
     val editId: MutableLiveData<Int> = MutableLiveData(0)
     val taskName: MutableLiveData<String> = MutableLiveData("")
+    val taskDeadline: MutableLiveData<String> = MutableLiveData("")
 
     init {
         val tasksDao = TaskDatabase.getDatabase(context, viewModelScope).taskDao()
