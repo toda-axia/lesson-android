@@ -52,7 +52,7 @@ abstract class TaskDatabase: RoomDatabase() {
 
             var task = Task(null, "Task1", "",false)
             taskDao.insertTask(task)
-            task = Task(null, "Task2", "",false)
+            task = Task(null, "Task2", "2020-01-31",false)
             taskDao.insertTask(task)
         }
     }
