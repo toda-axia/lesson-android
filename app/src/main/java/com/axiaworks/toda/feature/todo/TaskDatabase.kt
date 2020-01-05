@@ -50,9 +50,9 @@ abstract class TaskDatabase: RoomDatabase() {
         suspend fun populateDatabase(taskDao: TaskDao) {
             taskDao.deleteAll()
 
-            var task = Task(null, "Task1", "",false)
+            var task = Task(null, "Task1", "")
             taskDao.insertTask(task)
-            task = Task(null, "Task2", "2020/01/31",false)
+            task = Task(null, "Task2", "2020/01/31")
             taskDao.insertTask(task)
         }
     }

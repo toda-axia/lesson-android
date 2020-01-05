@@ -60,13 +60,13 @@ class TodoActivity : AppCompatActivity() {
         if (requestCode == todoNewActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let { taskName ->
                 data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_DATE)?.let { taskDate ->
-                    val task = Task(null, taskName, taskDate,false)
+                    val task = Task(null, taskName, taskDate)
                     taskViewModel.insert(task)
                 }
             }
         } else if (requestCode == todoNewActivityRequestEditCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(TodoNewActivity.EXTRA_REPLY_NAME)?.let {
-                val task = Task(taskViewModel.editId.value, it, "",false)
+                val task = Task(taskViewModel.editId.value, it, "")
                 taskViewModel.insert(task)
             }
         } else {
