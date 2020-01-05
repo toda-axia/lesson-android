@@ -36,7 +36,7 @@ class TodoActivity : AppCompatActivity() {
                 TodoNewActivity.callingIntent(
                     this,
                     "",
-                    SimpleDateFormat("yyyy-MM-dd").format(Date())),
+                    SimpleDateFormat("yyyy/MM/dd").format(Date())),
                 todoNewActivityRequestCode)
         }
 
