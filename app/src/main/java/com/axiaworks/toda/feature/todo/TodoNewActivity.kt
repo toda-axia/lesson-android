@@ -1,13 +1,11 @@
 package com.axiaworks.toda.feature.todo
 
 import android.app.Activity
-import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import com.axiaworks.toda.R

@@ -1,6 +1,5 @@
 package com.axiaworks.toda.feature.todo
 
-import android.app.Application
 import android.content.Context
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
