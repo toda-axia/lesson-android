@@ -5,14 +5,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TodoActivity : AppCompatActivity() {
     companion object {
@@ -32,7 +32,12 @@ class TodoActivity : AppCompatActivity() {
         task_recyclerview.layoutManager = LinearLayoutManager(this)
 
         add_task_fab.setOnClickListener {
-            startActivityForResult(TodoNewActivity.callingIntent(this, "", ""), todoNewActivityRequestCode)
+            startActivityForResult(
+                TodoNewActivity.callingIntent(
+                    this,
+                    "",
+                    SimpleDateFormat("yyyy-MM-dd").format(Date())),
+                todoNewActivityRequestCode)
         }
 
         taskViewModel.editId.observe(this, Observer {

@@ -1,16 +1,19 @@
 package com.axiaworks.toda.feature.todo
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.TextView
 import com.axiaworks.toda.R
 import kotlinx.android.synthetic.main.activity_todo_new.*
 
-class TodoNewActivity : AppCompatActivity() {
+class TodoNewActivity : AppCompatActivity(), DatePickerDialogFragment.OnDateSetListener {
     companion object {
         const val INTENT_EXTRA_TODO_TASK_NAME = "com.axiaworks.toda.INTENT_TODO_TASK_NAME"
         const val INTENT_EXTRA_TODO_TASK_DATE = "com.axiaworks.toda.INTENT_TODO_TASK_DATE"
@@ -46,5 +49,14 @@ class TodoNewActivity : AppCompatActivity() {
             }
             finish()
         }
+
+        datepicker_button.setOnClickListener {
+            DatePickerDialogFragment().show(supportFragmentManager, DatePickerDialogFragment.TAG)
+        }
+    }
+
+    override fun onDateSelected(dateString: String) {
+        val inputDateText = findViewById<EditText>(R.id.edit_task_deadline)
+        inputDateText.setText(dateString)
     }
 }
