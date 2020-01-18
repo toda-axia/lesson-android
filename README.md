@@ -70,7 +70,7 @@
 <img width="306" alt="スクリーンショット 2020-01-18 17 09 16" src="https://user-images.githubusercontent.com/49626591/72660765-77fcc580-3a15-11ea-9a69-fcbbbd9390d3.png">
 
 ### QiitaClient課題
-- DataBinding + LiveData + Koin + Retrofit + ViewPager2を使った課題。
+- DataBinding + LiveData + Koin + Retrofit + ViewPager2などを使った課題。
 - 左右スワイプでAndroid、Firebase、FlutterのタグのQiitaの記事を新しい順に30件表示。
 - それぞれの記事のタイトルをタップすると、DialogFragmentで記事の詳細を表示。
 - 記事はMarkdownをレイアウト変換して表示。（Markwonライブラリ使用）
