@@ -16,8 +16,9 @@
 
 ### ViewPager2課題
 - ViewPager2を使った課題。
-- 左右スワイプでページを切り替え。
+- 左右スワイプでページを切り替え可能。
 - 全4ページでページごとに背景色を設定。
+- タブにTAB1〜TAB4を表示。
 
 <img width="306" alt="スクリーンショット 2020-01-18 17 30 28" src="https://user-images.githubusercontent.com/49626591/72660965-741e7280-3a18-11ea-8614-6391ff8faeda.png">
 <img width="306" alt="スクリーンショット 2020-01-18 17 30 35" src="https://user-images.githubusercontent.com/49626591/72660966-74b70900-3a18-11ea-938a-52fa5d15c3f6.png">
@@ -36,19 +37,21 @@
 ### Glide課題
 - Glideを使った課題。
 - Glideで本田翼の画像を表示。
-- 4枚目の画像は画像取得失敗時の表示。
-- 下4つの画像はフィルターをかける。
-- 5枚目 角丸加工
-- 6枚目 ぼかし加工
-- 7枚目 トゥーン加工
-- 8枚目 コントラスト加工
+- 1枚目 https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg の画像を表示。
+- 2枚目 https://contents.oricon.co.jp/special/img/52000/52822/detail/img480/1554804245661.jpg の画像を表示。
+- 3枚目 https://s.aolcdn.com/hss/storage/midas/ab3657e22f040a9f99ce0e3f5de3231b/203475401/honda.jpg の画像を表示。
+- 4枚目 画像取得失敗時の画像を表示。
+- 5枚目 https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg の画像を角丸加工して表示。
+- 6枚目 https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg の画像をぼかし加工して表示。
+- 7枚目 https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg の画像をトゥーン加工して表示。
+- 8枚目 https://cdn.narinari.com/site_img/photox/201909/23/20190922038.jpg の画像をコントラスト加工して表示。
 
 <img width="306" alt="スクリーンショット 2020-01-17 19 39 41" src="https://user-images.githubusercontent.com/49626591/72606019-2eeb3980-3961-11ea-88e2-ba09a0e55671.png">
 
 
 ### FirebaseAnalytics課題
 - FirebaseAnalyticsを使った課題。
-- 押したボタンのログを画面のRecyclerViewで表示。
+- 押したボタンのログを画面にRecyclerViewで表示。
 - ボタンのログ情報がFirebaseAnalyticsでFirebaseに送信。
 
 <img width="306" alt="スクリーンショット 2020-01-17 19 41 14" src="https://user-images.githubusercontent.com/49626591/72606123-5e9a4180-3961-11ea-85a2-9f1940381c0f.png">
@@ -59,21 +62,23 @@
 - DialogFragmentを２つ作成。
 - ダイアログ1はシンプルなダイアログでOKボタンを押すと閉じる。
 - ダイアログ2はYES・NOボタンを配置して、それぞれの押したボタンのログを画面に表示。
+- ダイアログ表示時のダイアログ外へのタップは無効。
 
 <img width="306" alt="スクリーンショット 2020-01-17 19 41 55" src="https://user-images.githubusercontent.com/49626591/72606205-85587800-3961-11ea-9ab6-f5fcc80f9e53.png">
 <img width="306" alt="スクリーンショット 2020-01-17 19 42 08" src="https://user-images.githubusercontent.com/49626591/72606207-85587800-3961-11ea-8999-490a9fdcaa8a.png">
 
 ### Retrofit課題
 - Retrofitを使った課題。
-- ボタンをタップすると、QiitaのAndroidタグが付いている記事の最新3件分のJSON情報を取得する。
+- 記事取得ボタンをタップすると、QiitaのAndroidタグが付いている記事の最新3件分のJSON情報を取得して表示する。
 
 <img width="306" alt="スクリーンショット 2020-01-18 17 09 16" src="https://user-images.githubusercontent.com/49626591/72660765-77fcc580-3a15-11ea-9a69-fcbbbd9390d3.png">
 
 ### QiitaClient課題
 - DataBinding + LiveData + Koin + Retrofit + ViewPager2などを使った課題。
-- 左右スワイプでAndroid、Firebase、FlutterのタグのQiitaの記事を新しい順に30件表示。
+- Android Jetpackを使用したMVVMパターンでQiitaクライアントアプリを作成。
+- 左右スワイプでAndroid、Firebase、FlutterのタグのQiitaの記事のタイトルを新しい順に30件表示。
 - それぞれの記事のタイトルをタップすると、DialogFragmentで記事の詳細を表示。
-- 記事はMarkdownをレイアウト変換して表示。（Markwonライブラリ使用）
+- 記事の詳細はMarkdownをレイアウト変換して表示。（Markwonライブラリ使用）
 
 <img width="306" alt="スクリーンショット 2020-01-18 17 09 29" src="https://user-images.githubusercontent.com/49626591/72660766-81862d80-3a15-11ea-9066-e5a6b33040bf.png">
 <img width="306" alt="スクリーンショット 2020-01-18 17 09 42" src="https://user-images.githubusercontent.com/49626591/72660768-81862d80-3a15-11ea-8b08-23a135d067f2.png">
