@@ -81,4 +81,4 @@
 - 記事の詳細はMarkdownをレイアウト変換して表示。（Markwonライブラリ使用）
 
 <img width="306" alt="スクリーンショット 2020-01-18 17 09 29" src="https://user-images.githubusercontent.com/49626591/72660766-81862d80-3a15-11ea-9066-e5a6b33040bf.png">
-<img width="306" alt="スクリーンショット 2020-01-18 17 09 42" src="https://user-images.githubusercontent.com/49626591/72660768-81862d80-3a15-11ea-8b08-23a135d067f2.png">
+<img width="315" alt="スクリーンショット 2020-03-19 18 52 38" src="https://user-images.githubusercontent.com/49626591/77055442-3c31ac80-6a14-11ea-9473-68a315a35fdd.png">
